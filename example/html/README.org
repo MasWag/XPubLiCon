@@ -69,7 +69,9 @@ The following is the Makefile to generate a complete HTML file.
 
 <<GENERATE_FRAGMENT>>
 
-<<GENERATE_DATE>>
+clean:
+	$(RM) publications.html tools.html talks.html index.html
+.PHONY: clean
 #+END_SRC
 
 **** Generate fragments of the (X)HTML file

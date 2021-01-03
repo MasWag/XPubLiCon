@@ -6,18 +6,18 @@ on:
       - master
 
 jobs:
-  build-deploy:
+  deploy-examples:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v1
         with:
           submodules: true
 
-      - name: Install xmllint and xsltproc
-        run: sudo apt-get install libxml2-utils -y
+      - name: Install GNU make, xmllint, and xsltproc
+        run: sudo apt-get update && sudo apt-get install make libxml2-utils xsltproc -y
 
       - name: Build
-        run: make -C ./example/html
+        run: make -C ./example/html clean index.html
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v2
