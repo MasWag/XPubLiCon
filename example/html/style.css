@@ -1,0 +1,42 @@
+h1 {
+    border-color: #bbeeee;
+    border-width: 0pt 0pt 2pt 10pt;
+    border-style: solid;
+    padding-left: 0.5em;
+}
+
+h2 {
+    border-color: #eebbee;
+    border-width: 0pt 0pt 2pt 10pt;
+    border-style: solid;
+    padding-left: 0.5em;
+}
+
+footer {
+    border-color: #aaaa33;
+    border-width: 1pt 0pt 0pt 0pt;
+    border-style: solid;
+}
+
+.portrait {
+    float: right;
+}
+
+.authors::after {
+  content: "\A" ;
+  white-space: pre;
+}
+
+.title {
+    font-weight: bold;
+}
+
+.title::after {
+  content: "\A" ;
+  white-space: pre;
+}
+
+.book-name {
+    font-style: italic;
+}
+

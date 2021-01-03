@@ -23,7 +23,7 @@ rnv schema.rnc ./example/data.xml
 
 ### (X)HTML Generation
 
-You can generate (X)HTML from the input XML file using XSLT files. For example, you can use [xsltproc](http://xmlsoft.org/XSLT/xsltproc.html) or [saxon](http://saxon.sourceforge.net/).
+You can generate a fragment of (X)HTML file from the input XML file using XSLT files. For example, you can use [xsltproc](http://xmlsoft.org/XSLT/xsltproc.html) or [saxon](http://saxon.sourceforge.net/). See also [./example/html/README.md](./example/html/README.md) for an example for generating a complete (X)HTML file.
 
 ```bash
 xsltproc ./xslt/publications_html.xsl ./example/data.xml > publications.html
