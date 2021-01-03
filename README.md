@@ -2,6 +2,7 @@ XPubLiCon
 =========
 
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](./LICENSE)
+[![Validate](https://github.com/MasWag/XPubLiCon/workflows/Validate/badge.svg)](https://github.com/MasWag/XPubLiCon/actions?query=workflow%3A%22Validate%22)
 
 
 An XML-based publication list converter.

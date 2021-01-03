@@ -1,0 +1,23 @@
+name: Validate
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  validate:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v1
+        with:
+          submodules: true
+
+      - name: Install mono-xmltool
+        run: sudo apt-get update && sudo apt-get install mono-devel -y
+
+      - name: Validate the schema file
+        run: mono-xmltool --validate-rnc ./schema.rnc
+
+      - name: Validate the example XML file
+        run: mono-xmltool --validate ./schema.rnc ./example/data.xml
