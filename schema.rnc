@@ -1,0 +1,119 @@
+start = element data {
+    element PublicationEntries { 
+        (in_proceedings
+        | article
+        | book
+        | thesis)*
+    },
+    element Tools { 
+        web_resource*
+    },
+    element Talks { 
+        element Talk {
+            attribute invited { xsd:boolean }?,
+            (element venue { web_resource }
+            & element date { text }
+            & element location { text }
+            & element title { text }
+            & web_resource*)
+        }*
+    },
+    element Awards { 
+        element Award {
+            attribute id { xsd:integer }?,
+            attribute url { text }?,
+            attribute major { xsd:boolean }?,
+            attribute disclosed { text }?,
+            attribute type { "international_academic_award" | "international_society" | "japan_society" | "official_journal" | "publisher" | "others" }?,
+            (element name { 
+                  attribute japanese { text }?,
+                  text 
+              }
+            & element author { 
+                  attribute url { text }?,
+                  attribute japanese { text }?,
+                  text 
+              }+
+            & element title { 
+                  attribute japanese { text }?,
+                  text 
+              }?
+            & element organization { 
+                  attribute url { text }?,
+                  attribute japanese { text }?,
+                  text 
+              }?
+            & element abstract_english { text }?
+            & element abstract_japanese { text }?
+            & element year { xsd:integer }
+            & element month { xsd:integer }
+            & element day { xsd:integer }?)
+        }*
+    }
+}
+# gYear
+in_proceedings =
+    element InProceedings {
+        attribute published { xsd:boolean }?,
+        attribute series { text }?,
+        attribute volume { xsd:integer}?,
+        attribute organization { text }?,
+        (element officialPDF { web_resource }?
+        & element title { text }
+        & element authorPDF { web_resource }?
+        & element otherResources { web_resource }*
+        & element year { xsd:integer }
+        & element booktitle { text }
+        & element number { text }?
+        & element pages { text }?
+        & author+)
+    }
+article =
+    element Article {
+        attribute publisher { text }?,
+        (element title { text }
+        & element officialPDF { web_resource }?
+        & element year { xsd:integer }
+        & element journal { text }
+        & element authorPDF { web_resource }?
+        & element volume { xsd:integer}
+        & element number { text }?
+        & element pages { text }
+        & element otherResources { web_resource }*
+        &author+),
+        element note { text }?
+    }
+book =
+    element Book {
+        attribute title { text },
+        element officialPDF { web_resource }?,
+        element authorPDF { web_resource }?,
+        element otherResources { web_resource }*,
+        attribute year { xsd:integer },
+        attribute chapter { text }?,
+        attribute publisher { text }?,
+        author+
+        
+    }
+thesis =
+    element Thesis {
+        attribute degree { text },
+        (element title { text }
+        & element school { text }
+        & element year { xsd:integer }
+        & element officialPDF { web_resource }?
+        & element authorPDF { web_resource }?
+        & element otherResources { web_resource }*
+        & author+)
+    }
+author = 
+    element author {
+        attribute url { text }?,
+        text
+    }
+web_resource = 
+    element WebResource {
+        attribute label { text },
+        (attribute url { text }
+        | attribute doi {text})?
+    }

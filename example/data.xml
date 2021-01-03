@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data>
+  <PublicationEntries>
+    <Thesis degree="Ph.D.">
+      <author>Masaki Waga</author>
+      <title>Empowering Runtime Verification with Polyhedra.</title>
+      <year>2020</year>
+      <school>School of Multidisciplinary Sciences, The Graduate University for Advanced Studies (SOKENDAI)</school>
+    </Thesis>
+    <InProceedings organization="ACM">
+      <author url="https://elenagutiv.github.io/">Elena Gutiérrez</author>
+      <author url="http://group-mmm.org/~tokudono/">Takamasa Okudono</author>
+      <author>Masaki Waga</author>
+      <author url="http://group-mmm.org/~ichiro/">Ichiro Hasuo</author>
+      <title>Genetic algorithm for the weight maximization problem on weighted automata.</title>
+      <pages>699-707</pages>
+      <year>2020</year>
+      <booktitle>GECCO</booktitle>
+      <officialPDF>
+        <WebResource doi="10.1145/3377930.3390227" label="ACM" />
+      </officialPDF>
+      <authorPDF>
+        <WebResource url="https://arxiv.org/abs/2004.06581" label="extended version at arXiv" />
+      </authorPDF>
+    </InProceedings>
+    <Article publisher="IEEE">
+      <author>Masaki Waga</author>
+      <author url="http://group-mmm.org/~ichiro/">Ichiro Hasuo</author>
+      <title>Moore-Machine Filtering for Timed and Untimed Pattern Matching.</title>
+      <pages>2649-2660</pages>
+      <year>2018</year>
+      <volume>37</volume>
+      <journal>IEEE Trans. Comput. Aided Des. Integr. Circuits Syst.</journal>
+      <number>11</number>
+      <officialPDF>
+        <WebResource doi="10.1109/TCAD.2018.2857358" label="ieee" />
+      </officialPDF>
+      <authorPDF>
+        <WebResource url="http://arxiv.org/abs/1810.09633" label="extended version at arXiv" />
+      </authorPDF>
+      <note>
+        This paper was accepted at EMSOFT 2018.
+      </note>
+    </Article>
+  </PublicationEntries>
+  <Tools>
+    <WebResource label="FalCAuN — A tool for FALsification of Cyber-physical systems via AUtomata learNing" url="https://github.com/MasWag/FalCAuN" />
+    <WebResource label="SyMon — A tool for SYmbolic MONitoring" url="https://github.com/MasWag/SyMon" />
+  </Tools>
+  <Talks>
+    <Talk invited="true">
+      <title>Symbolic Monitoring against Specifications Parametric in Time and Data</title>
+      <venue>
+        <WebResource url="https://jssst2020.wordpress.com/" label="JSSST 2020" />
+      </venue>
+      <location>Online</location>
+      <date>10th September 2020</date>
+      <WebResource url="https://www.youtube.com/watch?v=XSi_o3IJoHo" label="video (in Japanese)" />
+    </Talk>
+    <Talk>
+      <title>Falsification of cyber-physical systems with robustness-guided black-box checking</title>
+      <venue>
+        <WebResource url="https://berkeleylearnverify.github.io/HSCC_2020/" label="HSCC 2020" />
+      </venue>
+      <location>Online</location>
+      <date>April 2020</date>
+      <WebResource url="./contents/HSCC2020.pdf" label="slide" /> 
+      <WebResource url="https://www.youtube.com/watch?v=v3bOf4r-O8M" label="video" />
+    </Talk>
+  </Talks>
+  <Awards>
+    <Award id="30749712" major="false" disclosed="disclosed">
+      <name japanese="複合科学研究科長賞">
+        Dean award, School of Multidisciplinary Sciences
+      </name>
+      <organization japanese="総合研究大学院大学" url="https://www.soken.ac.jp/">
+        The Graduate University for Advanced Studies (SOKENDAI)
+      </organization>
+      <author japanese="和賀正樹">Masaki Waga</author>
+      <year>2020</year>
+      <month>9</month>
+      <day>28</day>
+    </Award>
+  </Awards>
+</data>

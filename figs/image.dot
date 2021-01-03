@@ -1,0 +1,16 @@
+digraph T {
+        // Nodes
+        xpublicon[label="XPubLiCon XML"];
+        dblp[label="DBLP XML"];
+        html[label="(X)HTML"];
+        ResearchmapIn[label="Researchmap CSV"];
+        // Edges
+        CSV -> xpublicon;
+        dblp -> xpublicon;
+        YAML -> xpublicon;
+        ResearchmapIn -> xpublicon;
+        xpublicon -> html;
+        xpublicon -> SATySFi -> PDF;
+        xpublicon -> BibTeX -> PDF;
+        xpublicon -> Researchmap;
+}
