@@ -1,0 +1,28 @@
+name: Deploy Examples
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v1
+        with:
+          submodules: true
+
+      - name: Install xmllint and xsltproc
+        run: sudo apt-get install libxml2-utils -y
+
+      - name: Build
+        run: make -C ./example/html
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PUBLISH_BRANCH: gh-pages
+          PUBLISH_DIR: ./public
+          DESTINATION_DIR: ./html
