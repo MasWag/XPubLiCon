@@ -82,4 +82,20 @@
       <day>28</day>
     </Award>
   </Awards>
+  <TeachingExperiences>
+    <TeachingExperience id="31477187" TA="false" type="undergraduate_special_subjects">
+      <name japanese="計算機科学実験及演習２ (ハードウェア)">Computer Science Laboratory and Exercise 2 (Hardware)</name>
+      <organization japanese="京都大学工学部情報学科計算機科学コース">Kyoto University</organization>
+      <start_year>2020</start_year>
+      <start_month>10</start_month>
+    </TeachingExperience>
+    <TeachingExperience TA="true" url="http://group-mmm.org/~ichiro/COURSE_formalLang2016.html" type="undergraduate_special_subjects">
+      <name japanese="形式言語理論">Formal Language Theory</name>
+      <organization japanese="東京大学理学部情報科学科">The University of Tokyo</organization>
+      <start_year>2016</start_year>
+      <start_month>10</start_month>
+      <end_year>2017</end_year>
+      <end_month>3</end_month>
+    </TeachingExperience>
+  </TeachingExperiences>
 </data>
