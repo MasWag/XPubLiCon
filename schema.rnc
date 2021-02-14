@@ -1,79 +1,125 @@
 start = element data {
-    element PublicationEntries { 
-        (in_proceedings
-        | article
-        | book
-        | thesis)*
-    }?,
-    element Tools { 
-        web_resource*
-    }?,
-    element Talks { 
-        element Talk {
-            attribute invited { xsd:boolean }?,
-            (element venue { web_resource }
-            & element date { text }
-            & element location { text }
-            & element title { text }
-            & web_resource*)
-        }*
-    }?,
-    element Awards { 
-        element Award {
-            attribute id { xsd:integer }?,
-            attribute url { text }?,
-            attribute major { xsd:boolean }?,
-            attribute disclosed { text }?,
-            attribute type { "international_academic_award" | "international_society" | "japan_society" | "official_journal" | "publisher" | "others" }?,
-            (element name { 
-                  attribute japanese { text }?,
-                  text 
-              }
-            & element author { 
-                  attribute url { text }?,
-                  attribute japanese { text }?,
-                  text 
-              }+
-            & element title { 
-                  attribute japanese { text }?,
-                  text 
-              }?
-            & element organization { 
-                  attribute url { text }?,
-                  attribute japanese { text }?,
-                  text 
-              }?
-            & element abstract_english { text }?
-            & element abstract_japanese { text }?
-            & element year { xsd:integer }
-            & element month { xsd:integer }
-            & element day { xsd:integer }?)
-        }*
-    }?,
-    element TeachingExperiences {
-        element TeachingExperience {
-            attribute TA { xsd:boolean }?,
-            attribute id { xsd:integer }?,
-            attribute url { text }?,
-            attribute type { "undergraduate_liberal_arts" | "undergraduate_special_subjects" | "graduate_school_liberal_arts_course" | "postgraduate_courses" | "others" }?,
-            (element name { 
-                  attribute japanese { text }?,
-                  text 
-              }
-            & element organization { 
-                  attribute url { text }?,
-                  attribute japanese { text }?,
-                  text 
-              }
-            & element start_year { xsd:integer }
-            & element start_month { xsd:integer }
-            & element end_year { xsd:integer }?
-            & element end_month { xsd:integer }?
-            & element abstract_japanese { text }?
-            & element abstract_english { text }?)
-        }*
-    }?
-}
+            element PublicationEntries { 
+                (in_proceedings
+                | article
+                | book
+                | thesis)*
+            }?,
+            element Tools { 
+                web_resource*
+            }?,
+            element Talks { 
+                element Talk {
+                    attribute invited { xsd:boolean }?,
+                    (element venue { web_resource }
+                    & element date { text }
+                    & element location { text }
+                    & element title { text }
+                    & web_resource*)
+                }*
+            }?,
+            element Awards { 
+                element Award {
+                    attribute id { xsd:integer }?,
+                    attribute url { text }?,
+                    attribute major { xsd:boolean }?,
+                    attribute disclosed { text }?,
+                    attribute type { "international_academic_award" | "international_society" | "japan_society" | "official_journal" | "publisher" | "others" }?,
+                    (element name { 
+                         attribute japanese { text }?,
+                         text 
+                     }
+                    & element author { 
+                          attribute url { text }?,
+                          attribute japanese { text }?,
+                          text 
+                      }+
+                    & element title { 
+                          attribute japanese { text }?,
+                          text 
+                      }?
+                    & element organization { 
+                          attribute url { text }?,
+                          attribute japanese { text }?,
+                          text 
+                      }?
+                    & element abstract_english { text }?
+                    & element abstract_japanese { text }?
+                    & element year { xsd:integer }
+                    & element month { xsd:integer }
+                    & element day { xsd:integer }?)
+                }*
+            }?,
+            element TeachingExperiences {
+                element TeachingExperience {
+                    attribute TA { xsd:boolean }?,
+                    attribute id { xsd:integer }?,
+                    attribute url { text }?,
+                    attribute type { "undergraduate_liberal_arts" | "undergraduate_special_subjects" | "graduate_school_liberal_arts_course" | "postgraduate_courses" | "others" }?,
+                    (element name { 
+                         attribute japanese { text }?,
+                         text 
+                     }
+                    & element organization { 
+                          attribute url { text }?,
+                          attribute japanese { text }?,
+                          text 
+                      }
+                    & element start_year { xsd:integer }
+                    & element start_month { xsd:integer }
+                    & element end_year { xsd:integer }?
+                    & element end_month { xsd:integer }?
+                    & element abstract_japanese { text }?
+                    & element abstract_english { text }?)
+                }*
+            }?,
+            element Committees {(
+                    element PCMember {
+                        attribute id { xsd:integer }?,
+                        attribute type { "society" }?,(
+                            element organization { 
+                                attribute url { text }?,
+                                attribute japanese { text }?,
+                                text 
+                            }& 
+                            element start_year { xsd:integer }?&
+                            element start_month { xsd:integer }?&
+                            element end_year { xsd:integer }?&
+                            element end_month { xsd:integer }?
+                        )} &
+                    element PCChair {
+                        attribute id { xsd:integer }?,
+                        attribute type { "society" }?,(
+                            element organization { 
+                                attribute url { text }?,
+                                attribute japanese { text }?,
+                                text 
+                            }& 
+                            element start_year { xsd:integer }?&
+                            element start_month { xsd:integer }?&
+                            element end_year { xsd:integer }?&
+                            element end_month { xsd:integer }?
+                        )} &
+                    element Other {
+                        attribute id { xsd:integer }?,
+                        attribute type { "society" }?,(
+                            element name { 
+                                attribute japanese { text }?,
+                                text 
+                            }&
+                            element organization { 
+                                attribute url { text }?,
+                                attribute japanese { text }?,
+                                text 
+                            }& 
+                            element start_year { xsd:integer }?&
+                            element start_month { xsd:integer }?&
+                            element end_year { xsd:integer }?&
+                            element end_month { xsd:integer }?
+                        )}
+                )*
+            }?
+        }
 # gYear
 in_proceedings =
     element InProceedings {
