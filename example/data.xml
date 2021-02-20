@@ -98,4 +98,9 @@
       <end_month>3</end_month>
     </TeachingExperience>
   </TeachingExperiences>
+  <Committees>
+    <PCMember id="30749575" type="society">
+      <organization>FORMATS 2020</organization>
+    </PCMember>
+  </Committees>
 </data>
