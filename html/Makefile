@@ -1,4 +1,4 @@
-index.html: index_template.html publications.html tools.html talks.html teaching_experience.html
+index.html: index_template.html publications.html tools.html talks.html teaching_experience.html professional_services.html
 	xmllint $< --xinclude --output $@ --noent
 
 %.html: ../../xslt/%_html.xsl ../data.xml
