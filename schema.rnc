@@ -48,7 +48,7 @@ start = element data {
                           attribute url { text }?,
                           attribute japanese { text }?,
                           attribute not_me { xsd:boolean }?,
-                          text 
+                          text
                       }+
                     & element title {
                           attribute japanese { text }?,
