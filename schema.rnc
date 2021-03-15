@@ -123,6 +123,7 @@ start = element data {
 # gYear
 in_proceedings =
     element InProceedings {
+        attribute id { xsd:integer }?,
         attribute published { xsd:boolean }?,
         attribute series { text }?,
         attribute volume { xsd:integer}?,
@@ -132,7 +133,10 @@ in_proceedings =
         & element authorPDF { web_resource }?
         & element otherResources { web_resource }*
         & element year { xsd:integer }
-        & element booktitle { text }
+        & element booktitle {
+              attribute abbr {text}?,
+              text 
+          }
         & element number { text }?
         & element pages { text }?
         & author+)
@@ -140,6 +144,7 @@ in_proceedings =
 article =
     element Article {
         attribute publisher { text }?,
+        attribute id { xsd:integer }?,
         (element title { text }
         & element officialPDF { web_resource }?
         & element year { xsd:integer }
@@ -147,7 +152,8 @@ article =
         & element authorPDF { web_resource }?
         & element volume { xsd:integer}
         & element number { text }?
-        & element pages { text }
+        & element start_page { text }
+        & element end_page { text }
         & element otherResources { web_resource }*
         &author+),
         element note { text }?
@@ -155,6 +161,7 @@ article =
 book =
     element Book {
         attribute title { text },
+        attribute id { xsd:integer }?,
         element officialPDF { web_resource }?,
         element authorPDF { web_resource }?,
         element otherResources { web_resource }*,
@@ -167,6 +174,7 @@ book =
 thesis =
     element Thesis {
         attribute degree { text },
+        attribute id { xsd:integer }?,
         (element title { text }
         & element school { text }
         & element year { xsd:integer }
