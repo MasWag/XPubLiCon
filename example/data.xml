@@ -27,7 +27,8 @@
       <author>Masaki Waga</author>
       <author url="http://group-mmm.org/~ichiro/">Ichiro Hasuo</author>
       <title>Moore-Machine Filtering for Timed and Untimed Pattern Matching.</title>
-      <pages>2649-2660</pages>
+      <start_page>2649</start_page>
+      <end_page>2660</end_page>
       <year>2018</year>
       <volume>37</volume>
       <journal>IEEE Trans. Comput. Aided Des. Integr. Circuits Syst.</journal>

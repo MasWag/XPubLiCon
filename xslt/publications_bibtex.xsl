@@ -94,7 +94,7 @@
       <xsl:text>}</xsl:text>
     </xsl:if>
     <!-- Pages -->
-    <xsl:if test="./start_pages and ./end_pages">
+    <xsl:if test="./start_page and ./end_page">
       <xsl:text>,&#10;    pages = {</xsl:text>
       <xsl:value-of select="normalize-space(./start_page)" />-<xsl:value-of select="normalize-space(./end_page)" />
       <xsl:text>}</xsl:text>

@@ -15,8 +15,8 @@
           <xsl:when test="./@published and ./@published = 'false' and ./@abbr">
             To appear in Proc. <xsl:value-of select="normalize-space(./booktitle/@abbr)" /><xsl:text> </xsl:text><xsl:value-of select="normalize-space(./year)" />
           </xsl:when>
-          <xsl:when test="./@published and ./@published = 'false' and not ./@abbr">
-            To appear in Proc. <xsl:value-of select="normalize-space(./booktitle/)" /><xsl:text> </xsl:text><xsl:value-of select="normalize-space(./year)" />
+          <xsl:when test="./@published and ./@published = 'false' and not(./@abbr)">
+            To appear in Proc. <xsl:value-of select="normalize-space(./booktitle)" /><xsl:text> </xsl:text><xsl:value-of select="normalize-space(./year)" />
           </xsl:when>
           <xsl:when test="not (./@published and ./@published = 'false') and ./@abbr">
             Proc. <xsl:value-of select="normalize-space(./booktitle/@abbr)" /><xsl:text> </xsl:text><xsl:value-of select="normalize-space(./year)" />
@@ -67,7 +67,7 @@
       <xsl:if test="./number">
         <span class="number">no. <xsl:value-of select="normalize-space(./number)" /></span>,
       </xsl:if>
-      <span class="pages">pp. <xsl:value-of select="normalize-space(./begin_pages)" />-<xsl:value-of select="normalize-space(./end_pages)" /></span>,
+      <span class="pages">pp. <xsl:value-of select="normalize-space(./start_page)" />-<xsl:value-of select="normalize-space(./end_page)" /></span>,
       <span class="year"><xsl:value-of select="normalize-space(./year)" /></span>
       <xsl:if test="./@publisher">,
         <span class="organization">
