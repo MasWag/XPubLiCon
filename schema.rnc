@@ -1,14 +1,14 @@
 start = element data {
-            element PublicationEntries { 
+            element PublicationEntries {
                 (in_proceedings
                 | article
                 | book
                 | thesis)*
             }?,
-            element Tools { 
+            element Tools {
                 web_resource*
             }?,
-            element Talks { 
+            element Talks {
                 element Talk {
                     attribute invited { xsd:boolean }?,
                     attribute international { xsd:boolean }?,
@@ -22,30 +22,30 @@ start = element data {
                     & web_resource*)
                 }*
             }?,
-            element Awards { 
+            element Awards {
                 element Award {
                     attribute id { xsd:integer }?,
                     attribute url { text }?,
                     attribute major { xsd:boolean }?,
                     attribute disclosed { text }?,
                     attribute type { "international_academic_award" | "international_society" | "japan_society" | "official_journal" | "publisher" | "others" }?,
-                    (element name { 
+                    (element name {
                          attribute japanese { text }?,
-                         text 
+                         text
                      }
-                    & element author { 
+                    & element author {
                           attribute url { text }?,
                           attribute japanese { text }?,
-                          text 
+                          text
                       }+
-                    & element title { 
+                    & element title {
                           attribute japanese { text }?,
-                          text 
+                          text
                       }?
-                    & element organization { 
+                    & element organization {
                           attribute url { text }?,
                           attribute japanese { text }?,
-                          text 
+                          text
                       }?
                     & element abstract_english { text }?
                     & element abstract_japanese { text }?
@@ -60,14 +60,14 @@ start = element data {
                     attribute id { xsd:integer }?,
                     attribute url { text }?,
                     attribute type { "undergraduate_liberal_arts" | "undergraduate_special_subjects" | "graduate_school_liberal_arts_course" | "postgraduate_courses" | "others" }?,
-                    (element name { 
+                    (element name {
                          attribute japanese { text }?,
-                         text 
+                         text
                      }
-                    & element organization { 
+                    & element organization {
                           attribute url { text }?,
                           attribute japanese { text }?,
-                          text 
+                          text
                       }
                     & element start_year { xsd:integer }
                     & element start_month { xsd:integer }
@@ -81,11 +81,11 @@ start = element data {
                     element PCMember {
                         attribute id { xsd:integer }?,
                         attribute type { "society" }?,(
-                            element organization { 
+                            element organization {
                                 attribute url { text }?,
                                 attribute japanese { text }?,
-                                text 
-                            }& 
+                                text
+                            }&
                             element start_year { xsd:integer }?&
                             element start_month { xsd:integer }?&
                             element end_year { xsd:integer }?&
@@ -94,11 +94,11 @@ start = element data {
                     element PCChair {
                         attribute id { xsd:integer }?,
                         attribute type { "society" }?,(
-                            element organization { 
+                            element organization {
                                 attribute url { text }?,
                                 attribute japanese { text }?,
-                                text 
-                            }& 
+                                text
+                            }&
                             element start_year { xsd:integer }?&
                             element start_month { xsd:integer }?&
                             element end_year { xsd:integer }?&
@@ -107,21 +107,93 @@ start = element data {
                     element Other {
                         attribute id { xsd:integer }?,
                         attribute type { "society" }?,(
-                            element name { 
+                            element name {
                                 attribute japanese { text }?,
-                                text 
+                                text
                             }&
-                            element organization { 
+                            element organization {
                                 attribute url { text }?,
                                 attribute japanese { text }?,
-                                text 
-                            }& 
+                                text
+                            }&
                             element start_year { xsd:integer }?&
                             element start_month { xsd:integer }?&
                             element end_year { xsd:integer }?&
                             element end_month { xsd:integer }?
                         )}
                 )*
+            }?,
+            element Grants {
+                (element ResearchProject {
+                    attribute id { xsd:integer }?,
+                    attribute url { text }?,
+                    attribute grant_number { text }?,
+                    attribute international { xsd:boolean }?,
+                    attribute type { "principal_investigator" | "coinvestigator" | "coinvestigator_not_use_grants" | "others" }?,
+                    attribute total { xsd:integer }?,
+                    attribute total_direct { xsd:integer }?,
+                    attribute total_indirect { xsd:integer }?,
+                    (element title {
+                         attribute japanese { text }?,
+                         text
+                     }
+                    & element author {
+                          attribute url { text }?,
+                          attribute japanese { text }?,
+                          text
+                      }+
+                    & element grant_agency {
+                          attribute url { text }?,
+                          attribute japanese { text }?,
+                          text
+                      }
+                    & element scheme {
+                          attribute url { text }?,
+                          attribute japanese { text }?,
+                          text
+                      }
+                    & element categories {
+                          attribute url { text }?,
+                          attribute japanese { text }?,
+                          text
+                      }?
+                    & element organization {
+                          attribute url { text }?,
+                          attribute japanese { text }?,
+                          text
+                      }
+                    & element start_year { xsd:integer }
+                    & element start_month { xsd:integer }
+                    & element start_day { xsd:integer }?
+                    & element end_year { xsd:integer }
+                    & element end_month { xsd:integer }
+                    & element end_day { xsd:integer }?
+                    & element abstract_japanese { text }?
+                    & element abstract_english { text }?)
+                } | element OtherGrants {
+                    attribute id { xsd:integer }?,
+                    attribute url { text }?,
+                    (element title {
+                         attribute japanese { text }?,
+                         text
+                     }?
+                    & element grnant_agency {
+                          attribute url { text }?,
+                          attribute japanese { text }?,
+                          text
+                      }
+                    & element scheme {
+                          attribute url { text }?,
+                          attribute japanese { text }?,
+                          text
+                      }
+                    & element start_year { xsd:integer }?
+                    & element start_month { xsd:integer }?
+                    & element end_year { xsd:integer }?
+                    & element end_month { xsd:integer }?
+                    & element abstract_japanese { text }?
+                    & element abstract_english { text }?)
+                })*
             }?
         }
 # gYear
@@ -139,7 +211,7 @@ in_proceedings =
         & element year { xsd:integer }
         & element booktitle {
               attribute abbr {text}?,
-              text 
+              text
           }
         & element number { text }?
         & element pages { text }?
@@ -173,7 +245,7 @@ book =
         attribute chapter { text }?,
         attribute publisher { text }?,
         author+
-        
+
     }
 thesis =
     element Thesis {
@@ -187,12 +259,12 @@ thesis =
         & element otherResources { web_resource }*
         & author+)
     }
-author = 
+author =
     element author {
         attribute url { text }?,
         text
     }
-web_resource = 
+web_resource =
     element WebResource {
         attribute label { text },
         (attribute url { text }
