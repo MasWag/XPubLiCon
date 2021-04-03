@@ -26,13 +26,13 @@
           <xsl:value-of select="normalize-space(./@id)" />
         </xsl:attribute>
       </xsl:if>
-      <xsl:if test="./@url">
+      <xsl:if test="./organization/@url">
         <xsl:attribute name="href">
           <xsl:value-of select="normalize-space(./organization/@url)" />
         </xsl:attribute>
       </xsl:if>
-      <xsl:value-of select="normalize-space(./organization)" /> <xsl:value-of select="normalize-space(./start_year)" />.
-    </xsl:element>
+      <xsl:value-of select="normalize-space(./organization)" /> <xsl:value-of select="normalize-space(./start_year)" />
+    </xsl:element>.
   </xsl:template>
   <xsl:template match="PCChair">
     <xsl:element name="a">
@@ -42,24 +42,31 @@
         </xsl:attribute>
       </xsl:if>
       <xsl:attribute name="href">
-        <xsl:value-of select="normalize-space(./organization/@url)" />
+        <xsl:if test="./organization/@url">
+          <xsl:attribute name="href">
+            <xsl:value-of select="normalize-space(./organization/@url)" />
+          </xsl:attribute>
+        </xsl:if>
       </xsl:attribute>
-      <xsl:value-of select="normalize-space(./organization)" /> <xsl:value-of select="normalize-space(./start_year)" />.
-    </xsl:element>
+      <xsl:value-of select="normalize-space(./organization)" /> <xsl:value-of select="normalize-space(./start_year)" />
+    </xsl:element>.
     </xsl:template>
   <xsl:template match="Other">
     <li><xsl:value-of select="normalize-space(./name)" /> 
+    <xsl:text> of </xsl:text>
     <xsl:element name="a">
       <xsl:if test="./@id">
         <xsl:attribute name="id">
           <xsl:value-of select="normalize-space(./@id)" />
         </xsl:attribute>
       </xsl:if>
-      <xsl:attribute name="href">
-        <xsl:value-of select="normalize-space(./organization/@url)" />
-      </xsl:attribute>
-      <xsl:value-of select="normalize-space(./organization)" /> <xsl:value-of select="normalize-space(./start_year)" />.
-    </xsl:element>
+      <xsl:if test="./organization/@url">
+        <xsl:attribute name="href">
+          <xsl:value-of select="normalize-space(./organization/@url)" />
+        </xsl:attribute>
+      </xsl:if>
+      <xsl:value-of select="normalize-space(./organization)" /> <xsl:value-of select="normalize-space(./start_year)" />
+    </xsl:element>.
     </li>
     </xsl:template>
 </xsl:stylesheet>
