@@ -234,8 +234,95 @@ start = element data {
                     & element abstract_japanese { text }?
                     & element abstract_english { text }?)
                 })*
-            }?
-        }
+            }?,
+            element IndustrialPropertyRights {(
+                    element Patent {
+                        attribute id { xsd:integer }?,
+                        attribute application_number { text }?,
+                        attribute patent_number { text }?,
+                        attribute application_date { text }?,
+                        attribute registration_date { text }?,
+                        attribute countries { text }?,
+                        attribute uri { text }?,(
+                            element title {
+                                attribute japanese { text }?,
+                                text
+                            } &
+                            element author {
+                                attribute url { text }?,
+                                attribute japanese { text }?,
+                                text
+                            }+&
+                            element applicant {
+                                attribute url { text }?,
+                                attribute japanese { text }?,
+                                text
+                            }&
+                            element owner {
+                                attribute url { text }?,
+                                attribute japanese { text }?,
+                                text
+                            }?
+                        )}? &
+                    element UtilityModel {
+                        attribute id { xsd:integer }?,
+                        attribute application_number { text }?,
+                        attribute patent_number { text }?,
+                        attribute application_date { text }?,
+                        attribute registration_date { text }?,
+                        attribute countries { text }?,
+                        attribute uri { text }?,(
+                            element title {
+                                attribute japanese { text }?,
+                                text
+                            } &
+                            element author {
+                                attribute url { text }?,
+                                attribute japanese { text }?,
+                                text
+                            }+&
+                            element applicant {
+                                attribute url { text }?,
+                                attribute japanese { text }?,
+                                text
+                            }&
+                            element owner {
+                                attribute url { text }?,
+                                attribute japanese { text }?,
+                                text
+                            }?
+                        )}? &
+                    element DesignRight {
+                        attribute id { xsd:integer }?,
+                        attribute application_number { text }?,
+                        attribute patent_number { text }?,
+                        attribute application_date { text }?,
+                        attribute registration_date { text }?,
+                        attribute countries { text }?,
+                        attribute uri { text }?,(
+                            element title {
+                                attribute japanese { text }?,
+                                text
+                            } &
+                            element author {
+                                attribute url { text }?,
+                                attribute japanese { text }?,
+                                text
+                            }+&
+                            element applicant {
+                                attribute url { text }?,
+                                attribute japanese { text }?,
+                                text
+                            }&
+                            element owner {
+                                attribute url { text }?,
+                                attribute japanese { text }?,
+                                text
+                            }?
+                        )*
+                    }?
+                )+}?
+          }
 # gYear
 in_proceedings =
     element InProceedings {
