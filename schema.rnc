@@ -11,10 +11,14 @@ start = element data {
             element Talks { 
                 element Talk {
                     attribute invited { xsd:boolean }?,
-                    (element venue { web_resource }
+                    attribute international { xsd:boolean }?,
+                    attribute minor { xsd:boolean }?,
+                    (element venue { web_resource & text?}
+                    & element presenter { text }?
                     & element date { text }
                     & element location { text }
                     & element title { text }
+                    & element year { xsd:integer }?
                     & web_resource*)
                 }*
             }?,
