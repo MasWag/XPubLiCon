@@ -127,6 +127,20 @@
       <span class="book-name"><xsl:value-of select="normalize-space(./@degree)" /> Thesis</span>,
       <span class="organization"><xsl:value-of select="normalize-space(./school)" /></span>,
       <span class="year"><xsl:value-of select="normalize-space(./year)" /></span>.
+      <xsl:if test="./officialPDF or ./authorPDF">
+        <br />
+        <xsl:text>[</xsl:text>
+        <xsl:if test="./officialPDF">
+          <xsl:apply-templates select="./officialPDF/WebResource" />
+        </xsl:if>
+        <xsl:if test="./officialPDF and ./authorPDF">
+          <xsl:text> | </xsl:text>
+        </xsl:if>
+        <xsl:if test="./authorPDF">
+          <xsl:apply-templates select="./authorPDF/WebResource" />
+        </xsl:if>
+        <xsl:text>]</xsl:text>
+      </xsl:if>
     </li>
   </xsl:template>
   <xsl:template match="author">
