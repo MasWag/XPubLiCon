@@ -10,15 +10,26 @@ start = element data {
             }?,
             element Talks {
                 element Talk {
+                    attribute id { xsd:integer }?,
                     attribute invited { xsd:boolean }?,
-                    attribute international { xsd:boolean }?,
+                    attribute international_venue { xsd:boolean }?,
+                    attribute international_collaboration { xsd:boolean }?,
                     attribute minor { xsd:boolean }?,
+                    attribute lang { text }?,
+                    attribute type { "oral_presentation" | "poster_presentation" | "others" }?,
                     (element venue { web_resource & text?}
                     & element presenter { text }?
+                    & element author {
+                          attribute url { text }?,
+                          attribute japanese { text }?,
+                          text
+                      }*
                     & element date { text }
                     & element location { text }
                     & element title { text }
                     & element year { xsd:integer }?
+                    & element month { xsd:integer }?
+                    & element day { xsd:integer }?
                     & web_resource*)
                 }*
             }?,

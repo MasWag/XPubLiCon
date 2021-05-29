@@ -7,18 +7,20 @@
     </ul>
   </xsl:template>
   <xsl:template match="Talk">
-    <li>
-      <span class="title"><xsl:value-of select="normalize-space(./title)" /></span>
-      <xsl:if test="./@invited and ./@invited = 'true'">
-        Invited talk at 
-      </xsl:if>
-      <xsl:apply-templates select="./venue/WebResource"/>,
-      <xsl:value-of select="normalize-space(./location)" />,
-      <xsl:value-of select="normalize-space(./date)" />.
-      <xsl:if test="./WebResource">
-        [<xsl:apply-templates select="./WebResource"/>]
-      </xsl:if>
-    </li>
+    <xsl:if test="not(./@minor) or ./@minor = 'false'">
+      <li>
+        <span class="title"><xsl:value-of select="normalize-space(./title)" /></span>
+        <xsl:if test="./@invited and ./@invited = 'true'">
+          Invited talk at 
+        </xsl:if>
+        <xsl:apply-templates select="./venue/WebResource"/>,
+        <xsl:value-of select="normalize-space(./location)" />,
+        <xsl:value-of select="normalize-space(./date)" />.
+        <xsl:if test="./WebResource">
+          [<xsl:apply-templates select="./WebResource"/>]
+        </xsl:if>
+      </li>
+    </xsl:if>
   </xsl:template>
   <xsl:template match="WebResource">
     <xsl:element name="a">
