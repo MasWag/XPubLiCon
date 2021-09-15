@@ -13,7 +13,7 @@
         <xsl:otherwise>insert,merge,null</xsl:otherwise>
         </xsl:choose><xsl:text>,"</xsl:text>
         <!-- Title -->
-        <xsl:value-of select="normalize-space(./title)" />",<xsl:value-of select="normalize-space(./title)" /><xsl:text>",</xsl:text>
+        <xsl:value-of select="normalize-space(./title)" />","<xsl:value-of select="normalize-space(./title)" /><xsl:text>",</xsl:text>
         <!-- Authors -->
         <xsl:text>"[</xsl:text>
         <xsl:apply-templates select="./author" />
@@ -28,8 +28,8 @@
         </xsl:choose>
         <!-- Publication year -->
         <xsl:choose>
-          <xsl:when test="./@year">
-            <xsl:value-of select="normalize-space(./@year)" /><xsl:text>,</xsl:text>
+          <xsl:when test="./year">
+            <xsl:value-of select="normalize-space(./year)" /><xsl:text>,</xsl:text>
           </xsl:when>
           <xsl:otherwise>null,</xsl:otherwise>
         </xsl:choose>
@@ -58,7 +58,7 @@
           <xsl:otherwise>null,null,</xsl:otherwise>
         </xsl:choose>
         <!-- Publication year -->
-        <xsl:value-of select="normalize-space(./@year)" /><xsl:text>,</xsl:text>
+        <xsl:value-of select="normalize-space(./year)" /><xsl:text>,</xsl:text>
         <!-- journal -->
         <xsl:value-of select="normalize-space(./journal)" /><xsl:text>,</xsl:text><xsl:value-of select="normalize-space(./journal)" /><xsl:text>,</xsl:text>
         <!-- volume -->

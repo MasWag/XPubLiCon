@@ -229,6 +229,7 @@ in_proceedings =
         attribute published { xsd:boolean }?,
         attribute series { text }?,
         attribute volume { xsd:integer}?,
+        attribute publisher { text }?,
         attribute organization { text }?,
         (element officialPDF { web_resource }?
         & element title { text }
