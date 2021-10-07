@@ -15,7 +15,7 @@
           <xsl:when test="./@published and ./@published = 'false' and ./booktitle/@abbr">
             To appear in Proc. <xsl:value-of select="normalize-space(./booktitle/@abbr)" /><xsl:text> </xsl:text><xsl:value-of select="normalize-space(./year)" />
           </xsl:when>
-          <xsl:when test="./@published and ./@published = 'false'">
+          <xsl:when test="./@published and ./@published = 'false' and (not (./booktitle/@abbr))">
             To appear in Proc. <xsl:value-of select="normalize-space(./booktitle)" /><xsl:text> </xsl:text><xsl:value-of select="normalize-space(./year)" />
           </xsl:when>
           <xsl:when test="not (./@published and ./@published = 'false') and ./booktitle/@abbr">
