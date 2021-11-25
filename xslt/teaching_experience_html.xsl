@@ -21,13 +21,21 @@
           <xsl:attribute name="href">
             <xsl:value-of select="normalize-space(./@url)" />
           </xsl:attribute>
-          <xsl:value-of select="normalize-space(./name)" /> (<xsl:value-of select="normalize-space(./name/@japanese)" />)
+          <xsl:value-of select="normalize-space(./name)" /> (<xsl:value-of select="normalize-space(./name/@japanese)" />
+          <xsl:text>)</xsl:text>
         </xsl:element>
       </xsl:if>
       <xsl:if test="not(./@url)">
-        <xsl:value-of select="normalize-space(./name)" /> (<xsl:value-of select="normalize-space(./name/@japanese)" />)
+        <xsl:value-of select="normalize-space(./name)" /> (<xsl:value-of select="normalize-space(./name/@japanese)" />
+        <xsl:text>)</xsl:text>
       </xsl:if>
-      (<xsl:value-of select="normalize-space(./start_year)" />/<xsl:value-of select="normalize-space(./start_month)" />--<xsl:if test="./end_year and ./end_month"><xsl:value-of select="normalize-space(./end_year)" />/<xsl:value-of select="normalize-space(./end_month)" /></xsl:if>) <xsl:value-of select="normalize-space(./organization)" />
+      <xsl:if test="./note">
+        <xsl:text> (</xsl:text>
+        <xsl:value-of select="normalize-space(./note)" />
+        <xsl:text>)</xsl:text>
+      </xsl:if>
+      <xsl:text>, </xsl:text>
+      <xsl:value-of select="normalize-space(./start_year)" />/<xsl:value-of select="normalize-space(./start_month)" />--<xsl:if test="./end_year and ./end_month"><xsl:value-of select="normalize-space(./end_year)" />/<xsl:value-of select="normalize-space(./end_month)" /></xsl:if>, <xsl:value-of select="normalize-space(./organization)" />
     </xsl:element>
   </xsl:template>
 </xsl:stylesheet>

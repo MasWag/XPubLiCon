@@ -86,7 +86,8 @@ start = element data {
                     & element end_year { xsd:integer }?
                     & element end_month { xsd:integer }?
                     & element abstract_japanese { text }?
-                    & element abstract_english { text }?)
+                    & element abstract_english { text }?
+                    & element note { text }?)
                 }*
             }?,
             element Committees {(
