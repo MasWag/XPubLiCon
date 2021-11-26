@@ -18,7 +18,7 @@
       <!-- authors in Japanese -->
       <xsl:text>"[</xsl:text>
       <xsl:apply-templates select="./author">
-        <xsl:with-param name="japanese" select="True" />
+        <xsl:with-param name="japanese">True</xsl:with-param>
       </xsl:apply-templates>
       <xsl:text>]",</xsl:text>
       <!-- authors -->
