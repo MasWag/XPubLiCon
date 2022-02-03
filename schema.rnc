@@ -117,6 +117,19 @@ start = element data {
                             element end_year { xsd:integer }?&
                             element end_month { xsd:integer }?
                         )} &
+                    element AECommittee {
+                        attribute id { xsd:integer }?,
+                        attribute type { "society" }?,(
+                            element organization {
+                                attribute url { text }?,
+                                attribute japanese { text }?,
+                                text
+                            }&
+                            element start_year { xsd:integer }?&
+                            element start_month { xsd:integer }?&
+                            element end_year { xsd:integer }?&
+                            element end_month { xsd:integer }?
+                        )} &
                     element Other {
                         attribute id { xsd:integer }?,
                         attribute type { "society" }?,(

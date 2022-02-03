@@ -16,6 +16,11 @@
           <xsl:apply-templates select="./PCChair"/>
         </li>
       </xsl:if>
+      <xsl:if test="./AECommittee">
+        <li>Artifact evaluation committee member: 
+          <xsl:apply-templates select="./AECommittee"/>
+        </li>
+      </xsl:if>
       <xsl:apply-templates select="./Other"/>
     </ul>
   </xsl:template>
@@ -51,6 +56,21 @@
       <xsl:value-of select="normalize-space(./organization)" /> <xsl:value-of select="normalize-space(./start_year)" />
     </xsl:element>.
     </xsl:template>
+  <xsl:template match="AECommittee">
+    <xsl:element name="a">
+      <xsl:if test="./@id">
+        <xsl:attribute name="id">
+          <xsl:value-of select="normalize-space(./@id)" />
+        </xsl:attribute>
+      </xsl:if>
+      <xsl:if test="./organization/@url">
+        <xsl:attribute name="href">
+          <xsl:value-of select="normalize-space(./organization/@url)" />
+        </xsl:attribute>
+      </xsl:if>
+      <xsl:value-of select="normalize-space(./organization)" /> <xsl:value-of select="normalize-space(./start_year)" />
+    </xsl:element>.
+  </xsl:template>
   <xsl:template match="Other">
     <li><xsl:value-of select="normalize-space(./name)" /> 
     <xsl:text> of </xsl:text>

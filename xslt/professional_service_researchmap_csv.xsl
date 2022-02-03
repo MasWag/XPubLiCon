@@ -33,6 +33,19 @@
       <xsl:otherwise>"<xsl:value-of select="normalize-space(./organization)"/>"</xsl:otherwise>
       </xsl:choose>,"<xsl:value-of select="normalize-space(./organization)"/>",<xsl:value-of select="./@type" />
   </xsl:template>
+  <xsl:template match="Committees/AECommittee">
+    <xsl:choose>
+      <xsl:when test="./@id">update,doc,<xsl:value-of select="normalize-space(./@id)"/></xsl:when>
+      <xsl:otherwise>insert,merge,null</xsl:otherwise>
+      </xsl:choose>,<xsl:choose><xsl:when test="./start_year"><xsl:value-of select="./start_year" /><xsl:value-of select="./start_month" />,</xsl:when>
+      <xsl:otherwise>null,</xsl:otherwise></xsl:choose><xsl:choose>
+      <xsl:when test="./end_year"><xsl:value-of select="./end_year" /><xsl:value-of select="./end_month" />,</xsl:when>
+      <xsl:otherwise>null,</xsl:otherwise>
+      </xsl:choose>"Artifact Evaluation Committee Member","Artifact Evaluation Committee Member",<xsl:choose>
+      <xsl:when test="./organization/@japanese">"<xsl:value-of select="normalize-space(./organization/@japanese)"/>"</xsl:when>
+      <xsl:otherwise>"<xsl:value-of select="normalize-space(./organization)"/>"</xsl:otherwise>
+      </xsl:choose>,"<xsl:value-of select="normalize-space(./organization)"/>",<xsl:value-of select="./@type" />
+  </xsl:template>
   <xsl:template match="Committees/Other">
     <xsl:choose>
       <xsl:when test="./@id">update,doc,<xsl:value-of select="normalize-space(./@id)"/></xsl:when>
