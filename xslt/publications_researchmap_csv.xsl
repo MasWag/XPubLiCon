@@ -29,10 +29,19 @@
         <!-- Publication year -->
         <xsl:choose>
           <xsl:when test="./year">
-            <xsl:value-of select="normalize-space(./year)" /><xsl:text>,"</xsl:text>
+            <xsl:value-of select="normalize-space(./year)" />
+            <xsl:if test="./month">
+              <xsl:text>-</xsl:text>
+              <xsl:value-of select="normalize-space(./month)" />
+              <xsl:if test="./day">
+                <xsl:text>-</xsl:text>
+                <xsl:value-of select="normalize-space(./day)" />
+              </xsl:if>
+            </xsl:if>
           </xsl:when>
-          <xsl:otherwise>null,"</xsl:otherwise>
+          <xsl:otherwise>null</xsl:otherwise>
         </xsl:choose>
+        <xsl:text>,"</xsl:text>
         <!-- Booktitle -->
         <xsl:value-of select="normalize-space(./booktitle)" /><xsl:text>","</xsl:text><xsl:value-of select="normalize-space(./booktitle)" /><xsl:text>",null,null,null,null,international_conference_proceedings&#10;</xsl:text>
     </xsl:if>
