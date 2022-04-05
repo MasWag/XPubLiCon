@@ -9,10 +9,10 @@
   <xsl:template match="TeachingExperiences/TeachingExperience">
     <xsl:if test="not(./@TA) or ./@TA = 'false'">
       <xsl:choose>
-        <xsl:when test="./@id">update,doc,<xsl:value-of select="normalize-space(./@id)"/></xsl:when>
+        <xsl:when test="./@id">update,doc,<xsl:value-of select="normalize-space(./@id)"/>,</xsl:when>
         <xsl:otherwise>insert,merge,null,</xsl:otherwise>
-      </xsl:choose>"<xsl:value-of select="normalize-space(./name/@japanese)"/>","<xsl:value-of select="normalize-space(./name)"/>","<xsl:value-of select="normalize-space(./organization/@japanese)"/>","<xsl:value-of select="normalize-space(./organization)"/>",<xsl:value-of select="./start_year" /><xsl:value-of select="./start_month" />,<xsl:choose>
-      <xsl:when test="./end_year"><xsl:value-of select="./end_year" /><xsl:value-of select="./end_month" />,</xsl:when>
+      </xsl:choose>"<xsl:value-of select="normalize-space(./name/@japanese)"/>","<xsl:value-of select="normalize-space(./name)"/>","<xsl:value-of select="normalize-space(./organization/@japanese)"/>","<xsl:value-of select="normalize-space(./organization)"/>",<xsl:value-of select="./start_year" /><xsl:value-of select="format-number(./start_month,'00')" />,<xsl:choose>
+      <xsl:when test="./end_year"><xsl:value-of select="./end_year" /><xsl:value-of select="format-number(./end_month,'00')" />,</xsl:when>
       <xsl:otherwise>9999,</xsl:otherwise>
     </xsl:choose>
     <xsl:choose>
@@ -29,6 +29,7 @@
         <xsl:when test="./@url">"<xsl:value-of select="./@url" />"</xsl:when>
         <xsl:otherwise>null</xsl:otherwise>
       </xsl:choose>
+      <xsl:text>&#10;</xsl:text>
     </xsl:if>
   </xsl:template>
 </xsl:stylesheet>
