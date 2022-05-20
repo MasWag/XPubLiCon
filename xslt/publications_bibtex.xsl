@@ -58,6 +58,7 @@
     </xsl:if>
   </xsl:template>
   <xsl:template match="PublicationEntries/Article">
+    <xsl:if test="not(./@published) or normalize-space(./@published) = 'True'">
     <xsl:text>@Article{&#10;</xsl:text>
     <!-- Authors -->
     <xsl:text>    author = {</xsl:text>
@@ -100,6 +101,7 @@
       <xsl:text>}</xsl:text>
     </xsl:if>
     <xsl:text>&#10;}&#10;</xsl:text>
+    </xsl:if>
   </xsl:template>
   <xsl:template match="PublicationEntries/Book">
     <xsl:choose>

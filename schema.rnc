@@ -249,6 +249,7 @@ in_proceedings =
 article =
     element Article {
         attribute publisher { text }?,
+        attribute published { xsd:boolean }?,
         attribute id { xsd:integer }?,
         (element title { text }
         & element officialPDF { web_resource }?

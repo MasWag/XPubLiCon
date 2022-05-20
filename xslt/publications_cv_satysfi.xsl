@@ -30,16 +30,28 @@ let bibliography = [
     </xsl:otherwise>
   </xsl:choose>
 </xsl:template>
- <xsl:template match="PublicationEntries/Article">
-   Article(|
-    author = {|<xsl:apply-templates select="./author" />|};
-    title = {<xsl:value-of select="normalize-space(./title)" />};
-    journal = {<xsl:value-of select="normalize-space(./journal)" />};
-    volume = <xsl:if test="./volume">Some(<xsl:value-of select="normalize-space(./volume)" />)</xsl:if><xsl:if test="not(./volume)">None</xsl:if>;
-    number = <xsl:if test="./number">Some({<xsl:value-of select="normalize-space(./number)" />})</xsl:if><xsl:if test="not(./number)">None</xsl:if>;
-    pages = (`<xsl:value-of select="normalize-space(./start_page)" />`,`<xsl:value-of select="normalize-space(./end_page)" />`);
-    year = <xsl:value-of select="normalize-space(./year)" />;
-  |);
+<xsl:template match="PublicationEntries/Article">
+  <xsl:choose>
+    <xsl:when test="./@published and ./@published = 'false'">
+      ToAppear(|
+      author = {|<xsl:apply-templates select="./author" />|};
+      title = {<xsl:value-of select="normalize-space(./title)" />};
+      booktitle = {<xsl:value-of select="normalize-space(./booktitle)" />};
+      year = <xsl:value-of select="normalize-space(./year)" />;
+      |);
+    </xsl:when>
+    <xsl:otherwise>
+      Article(|
+      author = {|<xsl:apply-templates select="./author" />|};
+      title = {<xsl:value-of select="normalize-space(./title)" />};
+      journal = {<xsl:value-of select="normalize-space(./journal)" />};
+      volume = <xsl:if test="./volume">Some(<xsl:value-of select="normalize-space(./volume)" />)</xsl:if><xsl:if test="not(./volume)">None</xsl:if>;
+      number = <xsl:if test="./number">Some({<xsl:value-of select="normalize-space(./number)" />})</xsl:if><xsl:if test="not(./number)">None</xsl:if>;
+      pages = (`<xsl:value-of select="normalize-space(./start_page)" />`,`<xsl:value-of select="normalize-space(./end_page)" />`);
+      year = <xsl:value-of select="normalize-space(./year)" />;
+      |);
+    </xsl:otherwise>
+  </xsl:choose>
 </xsl:template>
  <xsl:template match="PublicationEntries/Book">
    Book(|
