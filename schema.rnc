@@ -47,6 +47,7 @@ start = element data {
                     & element author {
                           attribute url { text }?,
                           attribute japanese { text }?,
+                          attribute me { xsd:boolean }?,
                           attribute not_me { xsd:boolean }?,
                           text
                       }+
@@ -203,7 +204,7 @@ start = element data {
                          attribute japanese { text }?,
                          text
                      }?
-                    & element grnant_agency {
+                    & element grant_agency {
                           attribute url { text }?,
                           attribute japanese { text }?,
                           text
@@ -258,10 +259,10 @@ article =
         & element day { xsd:integer }?
         & element journal { text }
         & element authorPDF { web_resource }?
-        & element volume { xsd:integer}
+        & element volume { xsd:integer }?
         & element number { text }?
-        & element start_page { text }
-        & element end_page { text }
+        & element start_page { text }?
+        & element end_page { text }?
         & element otherResources { web_resource }*
         &author+),
         element note { text }?
@@ -297,6 +298,7 @@ author =
         text
     }
 web_resource =
+    attribute open_access {xsd:boolean }?,
     element WebResource {
         attribute label { text },
         (attribute url { text }
