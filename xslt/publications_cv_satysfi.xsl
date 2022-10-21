@@ -13,6 +13,7 @@ let bibliography = [
       author = {|<xsl:apply-templates select="./author" />|};
       title = {<xsl:value-of select="normalize-space(./title)" />};
       booktitle = {<xsl:value-of select="normalize-space(./booktitle)" />};
+      shortbooktitle = <xsl:if test="./booktitle/@abbr">Some({<xsl:value-of select="normalize-space(./booktitle/@abbr)" />});</xsl:if><xsl:if test="not(./booktitle/@abbr)">None;</xsl:if>
       year = <xsl:value-of select="normalize-space(./year)" />;
       |);
     </xsl:when>
@@ -21,6 +22,7 @@ let bibliography = [
       author = {|<xsl:apply-templates select="./author" />|};
       title = {<xsl:value-of select="normalize-space(./title)" />};
       booktitle = {<xsl:value-of select="normalize-space(./booktitle)" />};
+      shortbooktitle = <xsl:if test="./booktitle/@abbr">Some({<xsl:value-of select="normalize-space(./booktitle/@abbr)" />});</xsl:if><xsl:if test="not(./booktitle/@abbr)">None;</xsl:if>
       series = <xsl:if test="./@series">Some({<xsl:value-of select="normalize-space(./@series)" />})</xsl:if><xsl:if test="not(./@series)">None</xsl:if>;
       volume = <xsl:if test="./@volume">Some(<xsl:value-of select="normalize-space(./@volume)" />)</xsl:if><xsl:if test="not(./@volume)">None</xsl:if>;
       number = <xsl:if test="./number">Some({<xsl:value-of select="normalize-space(./number)" />})</xsl:if><xsl:if test="not(./number)">None</xsl:if>;
@@ -36,7 +38,8 @@ let bibliography = [
       ToAppear(|
       author = {|<xsl:apply-templates select="./author" />|};
       title = {<xsl:value-of select="normalize-space(./title)" />};
-      booktitle = {<xsl:value-of select="normalize-space(./booktitle)" />};
+      booktitle = {<xsl:value-of select="normalize-space(./journal)" />};
+      shortbooktitle = <xsl:if test="./journal/@abbr">Some({<xsl:value-of select="normalize-space(./journal/@abbr)" />});</xsl:if><xsl:if test="not(./journal/@abbr)">None;</xsl:if>
       year = <xsl:value-of select="normalize-space(./year)" />;
       |);
     </xsl:when>
@@ -45,6 +48,7 @@ let bibliography = [
       author = {|<xsl:apply-templates select="./author" />|};
       title = {<xsl:value-of select="normalize-space(./title)" />};
       journal = {<xsl:value-of select="normalize-space(./journal)" />};
+      shortjournal = <xsl:if test="./journal/@abbr">Some({<xsl:value-of select="normalize-space(./journal/@abbr)" />});</xsl:if><xsl:if test="not(./journal/@abbr)">None;</xsl:if>
       volume = <xsl:if test="./volume">Some(<xsl:value-of select="normalize-space(./volume)" />)</xsl:if><xsl:if test="not(./volume)">None</xsl:if>;
       number = <xsl:if test="./number">Some({<xsl:value-of select="normalize-space(./number)" />})</xsl:if><xsl:if test="not(./number)">None</xsl:if>;
       pages = (`<xsl:value-of select="normalize-space(./start_page)" />`,`<xsl:value-of select="normalize-space(./end_page)" />`);
