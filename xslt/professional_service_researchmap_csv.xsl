@@ -60,7 +60,8 @@
       <xsl:when test="./organization/@japanese">"<xsl:value-of select="normalize-space(./organization/@japanese)"/>"</xsl:when>
       <xsl:otherwise>"<xsl:value-of select="normalize-space(./organization)"/>"</xsl:otherwise>
       </xsl:choose>,"<xsl:value-of select="normalize-space(./organization)"/>",<xsl:value-of select="./@type" />
-  </xsl:template>
+      <xsl:text>&#10;</xsl:text>
+</xsl:template>
   <xsl:template match="Committees/Other">
     <xsl:choose>
       <xsl:when test="./@id">update,doc,<xsl:value-of select="normalize-space(./@id)"/></xsl:when>
