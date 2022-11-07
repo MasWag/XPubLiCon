@@ -80,7 +80,7 @@
         <span class="volume">vol. <xsl:value-of select="normalize-space(./volume)" /></span>,
       </xsl:if>
       <xsl:if test="./number">
-        <span class="number">no. <xsl:value-of select="normalize-space(./number)" /></span>,
+        <span class="number">issue <xsl:value-of select="normalize-space(./number)" /></span>,
       </xsl:if>
       <xsl:if test="./pages">, 
         <span class="pages">pp. <xsl:value-of select="normalize-space(./pages)" /></span>
