@@ -24,6 +24,11 @@
       <xsl:apply-templates select="./AECommittee"/>
       <xsl:text>&#x0A;</xsl:text>
     </xsl:if>
+    <xsl:if test="./PublicityChair">
+      <xsl:text>      * \bold{Publicity chair} of </xsl:text>
+      <xsl:apply-templates select="./AECommittee"/>
+      <xsl:text>&#x0A;</xsl:text>
+    </xsl:if>
     <xsl:apply-templates select="./Other"/>
     <xsl:text>    }&#x0A;</xsl:text>
     <xsl:text>  &gt;&#x0A;</xsl:text>
@@ -38,6 +43,10 @@
     <xsl:text>. </xsl:text>
   </xsl:template>
   <xsl:template match="AECommittee">
+    <xsl:value-of select="normalize-space(./organization)" /> <xsl:value-of select="normalize-space(./start_year)" />
+    <xsl:text>. </xsl:text>
+  </xsl:template>
+  <xsl:template match="PublicityChair">
     <xsl:value-of select="normalize-space(./organization)" /> <xsl:value-of select="normalize-space(./start_year)" />
     <xsl:text>. </xsl:text>
   </xsl:template>
