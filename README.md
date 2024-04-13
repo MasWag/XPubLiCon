@@ -7,7 +7,7 @@ XPubLiCon
 
 An XML-based publication list converter.
 
-Although most of the part is still unimplemented, XPubLiCon is trying to be a hub among various format for publication lists.
+Although most of the part is still unimplemented, XPubLiCon is trying to be a hub among various format for publication lists. See [https://maswag.github.io/XPubLiCon/html/](here) for an example of the Web page based on the exported HTML.
 
 ![XPubLiCon is (going to be) a hub among various format for publication lists](./figs/image.png)
 
