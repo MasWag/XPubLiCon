@@ -104,7 +104,7 @@ start = element data {
                             element start_month { xsd:integer }?&
                             element end_year { xsd:integer }?&
                             element end_month { xsd:integer }?
-                        )} &
+                        )}? &
                     element PCChair {
                         attribute id { xsd:integer }?,
                         attribute type { "society" }?,(
@@ -117,7 +117,7 @@ start = element data {
                             element start_month { xsd:integer }?&
                             element end_year { xsd:integer }?&
                             element end_month { xsd:integer }?
-                        )} &
+                        )}? &
                     element PublicityChair {
                         attribute id { xsd:integer }?,
                         attribute type { "society" }?,(
@@ -130,7 +130,7 @@ start = element data {
                             element start_month { xsd:integer }?&
                             element end_year { xsd:integer }?&
                             element end_month { xsd:integer }?
-                        )} &
+                        )}? &
                     element AECommittee {
                         attribute id { xsd:integer }?,
                         attribute type { "society" }?,(
@@ -143,7 +143,7 @@ start = element data {
                             element start_month { xsd:integer }?&
                             element end_year { xsd:integer }?&
                             element end_month { xsd:integer }?
-                        )} &
+                        )}? &
                     element Other {
                         attribute id { xsd:integer }?,
                         attribute type { "society" }?,(
@@ -160,7 +160,7 @@ start = element data {
                             element start_month { xsd:integer }?&
                             element end_year { xsd:integer }?&
                             element end_month { xsd:integer }?
-                        )}
+                        )}?
                 )*
             }?,
             element Grants {
@@ -336,7 +336,11 @@ in_proceedings =
         & element title { text }
         & element authorPDF { web_resource }?
         & element otherResources { web_resource }*
-        & element year { xsd:integer }
+        & element year {
+              # This attribute is used if the year of publication is not the same as the year of the event.
+              attribute publication { xsd:integer }?,
+              xsd:integer
+          }
         & element month { xsd:integer }?
         & element day { xsd:integer }?
         & element booktitle {
@@ -357,7 +361,10 @@ article =
         & element year { xsd:integer }
         & element month { xsd:integer }?
         & element day { xsd:integer }?
-        & element journal { text }
+        & element journal {
+              attribute abbr {text}?,
+              text
+          }
         & element authorPDF { web_resource }?
         & element volume { xsd:integer }?
         & element number { text }?
