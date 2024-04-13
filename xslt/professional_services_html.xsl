@@ -6,14 +6,14 @@
   </xsl:template>
   <xsl:template match="Committees">
     <ul>
+      <xsl:if test="./PCChair">
+        <li>Program committee chair:
+          <xsl:apply-templates select="./PCChair"/>
+        </li>
+      </xsl:if>
       <xsl:if test="./PCMember">
         <li>Program committee member: 
           <xsl:apply-templates select="./PCMember"/>
-        </li>
-      </xsl:if>
-      <xsl:if test="./PCChair">
-        <li>Program committee chair: 
-          <xsl:apply-templates select="./PCChair"/>
         </li>
       </xsl:if>
       <xsl:if test="./AECommittee">
@@ -21,6 +21,7 @@
           <xsl:apply-templates select="./AECommittee"/>
         </li>
       </xsl:if>
+      <xsl:apply-templates select="./PublicityChair"/>
       <xsl:apply-templates select="./Other"/>
     </ul>
   </xsl:template>
@@ -70,6 +71,24 @@
       </xsl:if>
       <xsl:value-of select="normalize-space(./organization)" /> <xsl:value-of select="normalize-space(./start_year)" />
     </xsl:element>.
+  </xsl:template>
+  <xsl:template match="PublicityChair">
+    <li>
+      <xsl:text>Publicity chair of </xsl:text>
+      <xsl:element name="a">
+        <xsl:if test="./@id">
+          <xsl:attribute name="id">
+            <xsl:value-of select="normalize-space(./@id)" />
+          </xsl:attribute>
+        </xsl:if>
+        <xsl:if test="./organization/@url">
+          <xsl:attribute name="href">
+            <xsl:value-of select="normalize-space(./organization/@url)" />
+          </xsl:attribute>
+        </xsl:if>
+        <xsl:value-of select="normalize-space(./organization)" /> <xsl:value-of select="normalize-space(./start_year)" />
+        </xsl:element>.
+    </li>
   </xsl:template>
   <xsl:template match="Other">
     <li><xsl:value-of select="normalize-space(./name)" /> 
