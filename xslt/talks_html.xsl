@@ -3,7 +3,7 @@
   <xsl:output method="xml" encoding="UTF-8"/>
   <xsl:template match="/data">
     <ul>
-      <xsl:apply-templates select="./Talks/Talk"/>
+      <xsl:apply-templates select="./Talks/Talk" />
     </ul>
   </xsl:template>
   <xsl:template match="Talk">

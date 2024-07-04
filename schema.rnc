@@ -328,6 +328,7 @@ in_proceedings =
     element InProceedings {
         attribute id { xsd:integer }?,
         attribute published { xsd:boolean }?,
+        attribute reviewed { xsd:boolean }?, # Considered as true by default
         attribute series { text }?,
         attribute volume { xsd:integer}?,
         attribute publisher { text }?,
