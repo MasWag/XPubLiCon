@@ -17,11 +17,11 @@
     <xsl:choose>
       <xsl:when test="./@published and ./@published = 'false'">
         <xsl:text>To appear in Proc. </xsl:text>
-        <xsl:value-of select="normalize-space(./booktitle)" /><xsl:text> </xsl:text><xsl:value-of select="normalize-space(./year)" />
+        <xsl:value-of select="normalize-space(./booktitle)" />
       </xsl:when>
       <xsl:otherwise>
         <xsl:text>Proc. </xsl:text>
-        <xsl:value-of select="normalize-space(./booktitle)" /><xsl:text> </xsl:text><xsl:value-of select="normalize-space(./year)" />
+        <xsl:value-of select="normalize-space(./booktitle)" />
       </xsl:otherwise>
     </xsl:choose>
     <xsl:if test="./booktitle/@abbr">
