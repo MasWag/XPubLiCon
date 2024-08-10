@@ -8,6 +8,8 @@ let bibliography = [
 </xsl:template>
 <xsl:template match="PublicationEntries/InProceedings">
   <xsl:choose>
+    <xsl:when test="./@minor = true">
+    </xsl:when>
     <xsl:when test="./@published and ./@published = 'false'">
       ToAppear(|
       author = {|<xsl:apply-templates select="./author" />|};
@@ -86,6 +88,8 @@ let bibliography = [
   |);
 </xsl:template>
 <xsl:template match="PublicationEntries/Thesis">
+</xsl:template>
+<xsl:template match="PublicationEntries/Misc">
 </xsl:template>
 <xsl:template match="author">
   <xsl:apply-templates />
