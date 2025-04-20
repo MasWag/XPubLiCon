@@ -7,7 +7,7 @@ start = element data {
                 | misc)*
             }?,
             element Tools {
-                web_resource*
+                web_resource_element*
             }?,
             element Talks {
                 element Talk {
@@ -31,7 +31,7 @@ start = element data {
                     & element year { xsd:integer }?
                     & element month { xsd:integer }?
                     & element day { xsd:integer }?
-                    & web_resource*)
+                    & web_resource_element*)
                 }*
             }?,
             element Awards {
@@ -332,6 +332,7 @@ in_proceedings =
         attribute workshop { xsd:boolean }?, # Considered as false by default
         attribute published { xsd:boolean }?,
         attribute reviewed { xsd:boolean }?, # Considered as true by default
+        attribute international_collaboration { xsd:boolean }?,
         attribute series { text }?,
         attribute volume { xsd:integer}?,
         attribute publisher { text }?,
@@ -361,6 +362,7 @@ article =
         attribute publisher { text }?,
         attribute published { xsd:boolean }?,
         attribute id { xsd:integer }?,
+        attribute international_collaboration { xsd:boolean }?,
         (element title { text }
         & element officialPDF { web_resource }?
         & element year { xsd:integer }
@@ -423,10 +425,12 @@ author =
         attribute url { text }?,
         text
     }
-web_resource =
-    attribute open_access {xsd:boolean }?,
+web_resource_element =
     element WebResource {
         attribute label { text },
         (attribute url { text }
         | attribute doi {text})?
     }
+web_resource =
+    attribute open_access {xsd:boolean }?,
+    web_resource_element
