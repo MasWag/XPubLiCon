@@ -88,8 +88,8 @@
       <xsl:if test="./number">
         <span class="number">issue <xsl:value-of select="normalize-space(./number)" /></span>,
       </xsl:if>
-      <xsl:if test="./pages">, 
-        <span class="pages">pp. <xsl:value-of select="normalize-space(./pages)" /></span>
+      <xsl:if test="./start_page">
+        <span class="pages">pp. <xsl:value-of select="normalize-space(./start_page)" />-<xsl:value-of select="normalize-space(./end_page)" /></span>, 
       </xsl:if>
       <span class="year"><xsl:value-of select="normalize-space(./year)" /></span>
       <xsl:if test="./@publisher">,
