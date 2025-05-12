@@ -15,6 +15,9 @@
       <xsl:when test="./@patent_number">
         <xsl:value-of select="normalize-space(./@patent_number)" />
       </xsl:when>
+      <xsl:when test="./@published_number">
+        <xsl:value-of select="normalize-space(./@published_number)" />
+      </xsl:when>
       <xsl:when test="./@application_number">
         <xsl:value-of select="normalize-space(./@application_number)" />
       </xsl:when>

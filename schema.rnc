@@ -240,8 +240,10 @@ start = element data {
                     element Patent {
                         attribute id { xsd:integer }?,
                         attribute application_number { text }?,
+                        attribute published_number { text }?,
                         attribute patent_number { text }?,
                         attribute application_date { text }?,
+                        attribute publication_date { text }?,
                         attribute registration_date { text }?,
                         attribute countries { text }?,
                         attribute uri { text }?,(
@@ -268,8 +270,10 @@ start = element data {
                     element UtilityModel {
                         attribute id { xsd:integer }?,
                         attribute application_number { text }?,
+                        attribute published_number { text }?,
                         attribute patent_number { text }?,
                         attribute application_date { text }?,
+                        attribute publication_date { text }?,
                         attribute registration_date { text }?,
                         attribute countries { text }?,
                         attribute uri { text }?,(
@@ -296,8 +300,10 @@ start = element data {
                     element DesignRight {
                         attribute id { xsd:integer }?,
                         attribute application_number { text }?,
+                        attribute published_number { text }?,
                         attribute patent_number { text }?,
                         attribute application_date { text }?,
+                        attribute publication_date { text }?,
                         attribute registration_date { text }?,
                         attribute countries { text }?,
                         attribute uri { text }?,(

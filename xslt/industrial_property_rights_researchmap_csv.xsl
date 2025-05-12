@@ -5,7 +5,7 @@
   <xsl:template match="/data">
     <xsl:text>industrial_property_rights</xsl:text>
     <xsl:text>&#10;</xsl:text>
-    <xsl:text>アクション名,アクションタイプ,ID,産業財産権の種類,産業財産権名(日本語),産業財産権名(英語),発明者/考案者/創作者(日本語),発明者/考案者/創作者(英語),出願番号,出願日,出願人(機関)(日本語),出願人(機関)(英語),公開番号,公開日</xsl:text>
+    <xsl:text>アクション名,アクションタイプ,ID,産業財産権の種類,産業財産権名(日本語),産業財産権名(英語),発明者/考案者/創作者(日本語),発明者/考案者/創作者(英語),出願番号,出願日,出願人(機関)(日本語),出願人(機関)(英語),公開番号,公開日,特許番号/登録番号,登録日</xsl:text>
     <xsl:text>&#10;</xsl:text>
     <xsl:apply-templates select="./IndustrialPropertyRights" />
   </xsl:template>
@@ -47,6 +47,14 @@
       <xsl:with-param name="node" select="./applicant"/>
     </xsl:call-template>
     <xsl:text>, </xsl:text>
+    <!-- Published number -->
+    <xsl:call-template name="output-field">
+      <xsl:with-param name="node" select="@published_number"/>
+    </xsl:call-template>
+    <!-- Publication number -->
+    <xsl:call-template name="output-field">
+      <xsl:with-param name="node" select="@publication_date"/>
+    </xsl:call-template>
     <!-- Patent number -->
     <xsl:call-template name="output-field">
       <xsl:with-param name="node" select="@patent_number"/>
