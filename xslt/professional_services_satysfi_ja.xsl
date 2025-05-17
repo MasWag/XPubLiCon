@@ -14,12 +14,19 @@
       <xsl:text>&#x0A;</xsl:text>
     </xsl:if>
     <xsl:if test="./PCMember">
-      <xsl:text>      * \textbf{プログラム委員 (Program Committee Member)} of </xsl:text>
+      <xsl:text>      * \textbf{ プログラム委員 (国際) } </xsl:text>
       <xsl:apply-templates select="./PCMember"/>
+      <xsl:text>&#x0A;</xsl:text>
+      <xsl:text>      * \textbf{ プログラム委員 (国内) } </xsl:text>
+      <xsl:apply-templates select="./PCMember">
+        <xsl:with-param name="international">
+          false
+        </xsl:with-param>
+      </xsl:apply-templates>
       <xsl:text>&#x0A;</xsl:text>
     </xsl:if>
     <xsl:if test="./AECommittee">
-      <xsl:text>      * \textbf{アーティファクト審査委員 (Artifact Evaluation Committee Member)} of </xsl:text>
+      <xsl:text>      * \textbf{ アーティファクト審査委員 (国際) } </xsl:text>
       <xsl:apply-templates select="./AECommittee"/>
       <xsl:text>&#x0A;</xsl:text>
     </xsl:if>
@@ -39,6 +46,10 @@
     <xsl:text>}&#x0A;</xsl:text>
   </xsl:template>
   <xsl:template match="PCMember">
+    <xsl:param name="international">
+      true
+    </xsl:param>
+    <xsl:if test="(normalize-space($international) = 'true' and (./@international_venue = 'true' or not(./@international_venue))) or (normalize-space($international) = 'false' and ./@international_venue = 'false')">
     <xsl:choose>
       <xsl:when test="./organization/@japanese">
         <xsl:value-of select="normalize-space(./organization/@japanese)" />
@@ -49,6 +60,7 @@
     </xsl:choose>
     <xsl:value-of select="normalize-space(./start_year)" />
     <xsl:text>. </xsl:text>
+    </xsl:if>
   </xsl:template>
   <xsl:template match="PCChair">
     <xsl:value-of select="normalize-space(./organization)" /> <xsl:value-of select="normalize-space(./start_year)" />
@@ -63,9 +75,16 @@
     <xsl:text>. </xsl:text>
   </xsl:template>
   <xsl:template match="Other">
-    <xsl:text>      * </xsl:text>
-    <xsl:value-of select="normalize-space(./name)" />
-    <xsl:text> of </xsl:text>
+    <xsl:text>      * \textbf{ </xsl:text>
+    <xsl:choose>
+      <xsl:when test="./name/@japanese">
+        <xsl:value-of select="normalize-space(./name/@japanese)" />
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:value-of select="normalize-space(./name)" />
+      </xsl:otherwise>
+    </xsl:choose>
+    <xsl:text> } </xsl:text>
     <xsl:value-of select="normalize-space(./organization)" /> <xsl:value-of select="normalize-space(./start_year)" />
     <xsl:text>. </xsl:text>
     <xsl:text>&#x0A;</xsl:text>
