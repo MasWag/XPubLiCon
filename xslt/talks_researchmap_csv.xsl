@@ -5,7 +5,7 @@
   <xsl:template match="/data">
     <xsl:text>presentations</xsl:text>
     <xsl:text>&#10;</xsl:text>
-    <xsl:text>アクション名,アクションタイプ,ID,タイトル(日本語),タイトル(英語),講演者(日本語),講演者(英語),会議名(日本語),会議名(英語),発表年月日,招待の有無,記述言語,会議種別</xsl:text>
+    <xsl:text>アクション名,アクションタイプ,ID,タイトル(日本語),タイトル(英語),講演者(日本語),講演者(英語),会議名(日本語),会議名(英語),発表年月日,招待の有無,記述言語,会議種別,国際・国内会議,国際共著</xsl:text>
     <xsl:text>&#10;</xsl:text>
     <xsl:apply-templates select="./Talks" />    
   </xsl:template>
@@ -72,6 +72,26 @@
       </xsl:when>
       <xsl:otherwise>
         <xsl:text>oral_presentation</xsl:text>
+      </xsl:otherwise>
+    </xsl:choose>
+    <xsl:text>,</xsl:text>
+    <!-- venue -->
+    <xsl:choose>
+      <xsl:when test="./@international_venue">
+        <xsl:value-of select="normalize-space(./@international_venue)" />
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:text>null</xsl:text>
+      </xsl:otherwise>
+    </xsl:choose>
+    <xsl:text>,</xsl:text>
+    <!-- venue -->
+    <xsl:choose>
+      <xsl:when test="./@international_collaboration">
+        <xsl:value-of select="normalize-space(./@international_collaboration)" />
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:text>null</xsl:text>
       </xsl:otherwise>
     </xsl:choose>
     <xsl:text>&#10;</xsl:text>
