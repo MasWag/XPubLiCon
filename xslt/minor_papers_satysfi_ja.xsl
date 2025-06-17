@@ -8,6 +8,18 @@
     <xsl:text>]&#x0A;</xsl:text>
   </xsl:template>
   <xsl:template match="PublicationEntries/Article">
+    <xsl:if test="./@minor = 'true'">
+        Article(|
+        author = {|<xsl:apply-templates select="./author" />|};
+        title = {<xsl:value-of select="normalize-space(./title)" />};
+        journal = {<xsl:value-of select="normalize-space(./journal)" />};
+        shortjournal = <xsl:if test="./journal/@abbr">Some({<xsl:value-of select="normalize-space(./journal/@abbr)" />});</xsl:if><xsl:if test="not(./journal/@abbr)">None;</xsl:if>
+        volume = <xsl:if test="./volume">Some(<xsl:value-of select="normalize-space(./volume)" />)</xsl:if><xsl:if test="not(./volume)">None</xsl:if>;
+        number = <xsl:if test="./number">Some({<xsl:value-of select="normalize-space(./number)" />})</xsl:if><xsl:if test="not(./number)">None</xsl:if>;
+        pages = (`<xsl:value-of select="normalize-space(./start_page)" />`,`<xsl:value-of select="normalize-space(./end_page)" />`);
+        year = <xsl:value-of select="normalize-space(./year)" />;
+        |);
+    </xsl:if>
   </xsl:template>
   <xsl:template match="PublicationEntries/Thesis">
   </xsl:template>
