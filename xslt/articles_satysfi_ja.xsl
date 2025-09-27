@@ -9,6 +9,15 @@
   </xsl:template>
   <xsl:template match="PublicationEntries/Article">
     <xsl:choose>
+      <xsl:when test="./@minor and ./@minor = 'true'">
+        <!-- Misc(| -->
+        <!-- author = {|<xsl:apply-templates select="./author" />|}; -->
+        <!-- title = {<xsl:value-of select="normalize-space(./title)" />}; -->
+        <!-- booktitle = {<xsl:value-of select="normalize-space(./journal)" />}; -->
+        <!-- shortbooktitle = <xsl:if test="./journal/@abbr">Some({<xsl:value-of select="normalize-space(./journal/@abbr)" />});</xsl:if><xsl:if test="not(./journal/@abbr)">None;</xsl:if> -->
+        <!-- year = <xsl:value-of select="normalize-space(./year)" />; -->
+        <!-- |); -->
+      </xsl:when>
       <xsl:when test="./@published and ./@published = 'false'">
         ToAppear(|
         author = {|<xsl:apply-templates select="./author" />|};
