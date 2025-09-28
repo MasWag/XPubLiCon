@@ -19,6 +19,8 @@ let bibliography = [
       year = <xsl:value-of select="normalize-space(./year)" />;
       |);
     </xsl:when>
+    <xsl:when test="./@referee = 'false'">
+    </xsl:when>
     <xsl:otherwise>
       InProceedings(|
       author = {|<xsl:apply-templates select="./author" />|};
@@ -44,6 +46,15 @@ let bibliography = [
       shortbooktitle = <xsl:if test="./journal/@abbr">Some({<xsl:value-of select="normalize-space(./journal/@abbr)" />});</xsl:if><xsl:if test="not(./journal/@abbr)">None;</xsl:if>
       year = <xsl:value-of select="normalize-space(./year)" />;
       |);
+    </xsl:when>
+    <xsl:when test="./@referee = 'false'">
+        Misc(|
+        author = {|<xsl:apply-templates select="./author" />|};
+        title = {<xsl:value-of select="normalize-space(./title)" />};
+        booktitle = {<xsl:value-of select="normalize-space(./journal)" />};
+        shortbooktitle = <xsl:if test="./journal/@abbr">Some({<xsl:value-of select="normalize-space(./journal/@abbr)" />});</xsl:if><xsl:if test="not(./journal/@abbr)">None;</xsl:if>
+        year = <xsl:value-of select="normalize-space(./year)" />;
+        |);
     </xsl:when>
     <xsl:otherwise>
       Article(|

@@ -372,6 +372,7 @@ article =
         attribute minor { xsd:boolean }?,
         attribute publisher { text }?,
         attribute published { xsd:boolean }?,
+        attribute referee { xsd:boolean }?, # Considered as true by default
         attribute id { xsd:integer }?,
         attribute international_collaboration { xsd:boolean }?,
         (element title { text }

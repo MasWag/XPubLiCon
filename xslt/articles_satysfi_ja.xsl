@@ -9,7 +9,7 @@
   </xsl:template>
   <xsl:template match="PublicationEntries/Article">
     <xsl:choose>
-      <xsl:when test="./@minor and ./@minor = 'true'">
+      <xsl:when test="./@referee and ./@referee = 'false'">
         <!-- Misc(| -->
         <!-- author = {|<xsl:apply-templates select="./author" />|}; -->
         <!-- title = {<xsl:value-of select="normalize-space(./title)" />}; -->

@@ -63,55 +63,61 @@
     </xsl:choose>
   </xsl:template>
   <xsl:template match="PublicationEntries/Article">
-    <li>
-      <span class="authors"><xsl:apply-templates select="./author" /></span>
-      <span class="title"><xsl:value-of select="normalize-space(./title)" /></span>
-      <span class="book-name">
-        <xsl:choose>
-          <xsl:when test="./@published and ./@published = 'false' and ./journal/@abbr">
-            To appear in <xsl:value-of select="normalize-space(./journal/@abbr)" />
-          </xsl:when>
-          <xsl:when test="./@published and ./@published = 'false' and (not (./journal/@abbr))">
-            To appear in <xsl:value-of select="normalize-space(./journal)" />
-          </xsl:when>
-          <xsl:when test="not (./@published and ./@published = 'false') and ./journal/@abbr">
-            <xsl:value-of select="normalize-space(./journal/@abbr)" />
-          </xsl:when>
-          <xsl:otherwise>
-            <xsl:value-of select="normalize-space(./journal)" />
-          </xsl:otherwise>
-        </xsl:choose>
-        </span>,
-      <xsl:if test="./volume">
-        <span class="volume">vol. <xsl:value-of select="normalize-space(./volume)" /></span>,
-      </xsl:if>
-      <xsl:if test="./number">
-        <span class="number">issue <xsl:value-of select="normalize-space(./number)" /></span>,
-      </xsl:if>
-      <xsl:if test="./start_page">
-        <span class="pages">pp. <xsl:value-of select="normalize-space(./start_page)" />-<xsl:value-of select="normalize-space(./end_page)" /></span>, 
-      </xsl:if>
-      <span class="year"><xsl:value-of select="normalize-space(./year)" /></span>
-      <xsl:if test="./@publisher">,
-        <span class="organization">
-          <xsl:value-of select="normalize-space(./@publisher)" />
-        </span>
-        </xsl:if>.
-      <xsl:if test="./note"><br />
-        <xsl:apply-templates select="./note" />
-      </xsl:if>
-        <xsl:if test="./officialPDF or ./authorPDF"><br />
-        [<xsl:if test="./officialPDF">
-        <xsl:apply-templates select="./officialPDF/WebResource" />
-      </xsl:if>
-      <xsl:if test="./officialPDF and ./authorPDF">
-        <xsl:text> | </xsl:text>
-      </xsl:if>
-      <xsl:if test="./authorPDF">
-        <xsl:apply-templates select="./authorPDF/WebResource" />
-        </xsl:if>]
-      </xsl:if>
-    </li>
+    <xsl:choose>
+      <xsl:when test="./@referee and ./@referee = 'false'">
+      </xsl:when>
+      <xsl:otherwise>
+        <li>
+          <span class="authors"><xsl:apply-templates select="./author" /></span>
+          <span class="title"><xsl:value-of select="normalize-space(./title)" /></span>
+          <span class="book-name">
+            <xsl:choose>
+              <xsl:when test="./@published and ./@published = 'false' and ./journal/@abbr">
+                To appear in <xsl:value-of select="normalize-space(./journal/@abbr)" />
+              </xsl:when>
+              <xsl:when test="./@published and ./@published = 'false' and (not (./journal/@abbr))">
+                To appear in <xsl:value-of select="normalize-space(./journal)" />
+              </xsl:when>
+              <xsl:when test="not (./@published and ./@published = 'false') and ./journal/@abbr">
+                <xsl:value-of select="normalize-space(./journal/@abbr)" />
+              </xsl:when>
+              <xsl:otherwise>
+                <xsl:value-of select="normalize-space(./journal)" />
+              </xsl:otherwise>
+            </xsl:choose>
+            </span>,
+            <xsl:if test="./volume">
+              <span class="volume">vol. <xsl:value-of select="normalize-space(./volume)" /></span>,
+            </xsl:if>
+            <xsl:if test="./number">
+              <span class="number">issue <xsl:value-of select="normalize-space(./number)" /></span>,
+            </xsl:if>
+            <xsl:if test="./start_page">
+              <span class="pages">pp. <xsl:value-of select="normalize-space(./start_page)" />-<xsl:value-of select="normalize-space(./end_page)" /></span>, 
+            </xsl:if>
+            <span class="year"><xsl:value-of select="normalize-space(./year)" /></span>
+            <xsl:if test="./@publisher">,
+            <span class="organization">
+              <xsl:value-of select="normalize-space(./@publisher)" />
+            </span>
+            </xsl:if>.
+            <xsl:if test="./note"><br />
+            <xsl:apply-templates select="./note" />
+            </xsl:if>
+            <xsl:if test="./officialPDF or ./authorPDF"><br />
+            [<xsl:if test="./officialPDF">
+            <xsl:apply-templates select="./officialPDF/WebResource" />
+          </xsl:if>
+          <xsl:if test="./officialPDF and ./authorPDF">
+            <xsl:text> | </xsl:text>
+          </xsl:if>
+          <xsl:if test="./authorPDF">
+            <xsl:apply-templates select="./authorPDF/WebResource" />
+            </xsl:if>]
+            </xsl:if>
+        </li>
+      </xsl:otherwise>
+    </xsl:choose>
   </xsl:template>
   <xsl:template match="PublicationEntries/Book">
     <li>
