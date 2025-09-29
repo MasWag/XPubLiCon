@@ -8,7 +8,7 @@
     <xsl:text>]&#x0A;</xsl:text>
   </xsl:template>
   <xsl:template match="PublicationEntries/Article">
-    <xsl:if test="./@minor = 'true'">
+    <xsl:if test="./@minor = 'true' or ./@referee = 'false'">
         Article(|
         author = {|<xsl:apply-templates select="./author" />|};
         title = {<xsl:value-of select="normalize-space(./title)" />};
