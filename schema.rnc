@@ -26,7 +26,10 @@ start = element data {
                           text
                       }*
                     & element date { text }
-                    & element location { text }
+                    & element location {
+                          attribute japanese { text }?,
+                          text
+                      }
                     & element title { text }
                     & element year { xsd:integer }?
                     & element month { xsd:integer }?
