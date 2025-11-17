@@ -25,6 +25,7 @@
         booktitle = {<xsl:value-of select="normalize-space(./journal)" />};
         shortbooktitle = <xsl:if test="./journal/@abbr">Some({<xsl:value-of select="normalize-space(./journal/@abbr)" />});</xsl:if><xsl:if test="not(./journal/@abbr)">None;</xsl:if>
         year = <xsl:value-of select="normalize-space(./year)" />;
+        note = None;
         |);
       </xsl:when>
       <xsl:otherwise>
@@ -37,6 +38,7 @@
         number = <xsl:if test="./number">Some({<xsl:value-of select="normalize-space(./number)" />})</xsl:if><xsl:if test="not(./number)">None</xsl:if>;
         pages = (`<xsl:value-of select="normalize-space(./start_page)" />`,`<xsl:value-of select="normalize-space(./end_page)" />`);
         year = <xsl:value-of select="normalize-space(./year)" />;
+        note = None;
         |);
       </xsl:otherwise>
     </xsl:choose>

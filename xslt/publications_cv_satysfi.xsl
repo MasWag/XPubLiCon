@@ -17,6 +17,7 @@ let bibliography = [
       booktitle = {<xsl:value-of select="normalize-space(./booktitle)" />};
       shortbooktitle = <xsl:if test="./booktitle/@abbr">Some({<xsl:value-of select="normalize-space(./booktitle/@abbr)" />});</xsl:if><xsl:if test="not(./booktitle/@abbr)">None;</xsl:if>
       year = <xsl:value-of select="normalize-space(./year)" />;
+      note = None;
       |);
     </xsl:when>
     <xsl:when test="./@referee = 'false'">
@@ -32,6 +33,7 @@ let bibliography = [
       number = <xsl:if test="./number">Some({<xsl:value-of select="normalize-space(./number)" />})</xsl:if><xsl:if test="not(./number)">None</xsl:if>;
       pages = <xsl:if test="./pages">Some((`<xsl:value-of select="substring-before(normalize-space(./pages),'-')" />`,`<xsl:value-of select="substring-after(normalize-space(./pages),'-')" />`))</xsl:if><xsl:if test="not(./pages)">None</xsl:if>;
       year = <xsl:value-of select="normalize-space(./year)" />;
+      note = None;
       |);
     </xsl:otherwise>
   </xsl:choose>
@@ -45,6 +47,7 @@ let bibliography = [
       booktitle = {<xsl:value-of select="normalize-space(./journal)" />};
       shortbooktitle = <xsl:if test="./journal/@abbr">Some({<xsl:value-of select="normalize-space(./journal/@abbr)" />});</xsl:if><xsl:if test="not(./journal/@abbr)">None;</xsl:if>
       year = <xsl:value-of select="normalize-space(./year)" />;
+      note = None;
       |);
     </xsl:when>
     <xsl:when test="./@referee = 'false'">
@@ -54,6 +57,7 @@ let bibliography = [
         booktitle = {<xsl:value-of select="normalize-space(./journal)" />};
         shortbooktitle = <xsl:if test="./journal/@abbr">Some({<xsl:value-of select="normalize-space(./journal/@abbr)" />});</xsl:if><xsl:if test="not(./journal/@abbr)">None;</xsl:if>
         year = <xsl:value-of select="normalize-space(./year)" />;
+        note = None;
         |);
     </xsl:when>
     <xsl:otherwise>
@@ -66,6 +70,7 @@ let bibliography = [
       number = <xsl:if test="./number">Some({<xsl:value-of select="normalize-space(./number)" />})</xsl:if><xsl:if test="not(./number)">None</xsl:if>;
       pages = (`<xsl:value-of select="normalize-space(./start_page)" />`,`<xsl:value-of select="normalize-space(./end_page)" />`);
       year = <xsl:value-of select="normalize-space(./year)" />;
+      note = None;
       |);
     </xsl:otherwise>
   </xsl:choose>
@@ -76,6 +81,7 @@ let bibliography = [
     title = {<xsl:value-of select="normalize-space(./title)" />};
     publisher = {<xsl:value-of select="normalize-space(./publisher)" />};
     year = <xsl:value-of select="normalize-space(./year)" />;
+    note = None;
   |);
 </xsl:template>
 <xsl:template match="dblp/incollection">
@@ -88,6 +94,7 @@ let bibliography = [
     number = None; <!-- TODO: Perhaps this is available in crossref -->
     pages = (<xsl:value-of select="translate(normalize-space(./pages),'-',',')" />);
     year = <xsl:value-of select="normalize-space(./year)" />;
+    note = None;
   |);
 </xsl:template>
 <xsl:template match="dblp/www">
@@ -96,6 +103,7 @@ let bibliography = [
     title = {<xsl:value-of select="normalize-space(./title)" />};
     url = `<xsl:value-of select="normalize-space(./url)" />`;
     year = <xsl:value-of select="normalize-space(./year)" />;
+    note = None;
   |);
 </xsl:template>
 <xsl:template match="PublicationEntries/Thesis">
