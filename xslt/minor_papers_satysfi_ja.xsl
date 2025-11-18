@@ -18,6 +18,7 @@
         number = <xsl:if test="./number">Some({<xsl:value-of select="normalize-space(./number)" />})</xsl:if><xsl:if test="not(./number)">None</xsl:if>;
         pages = (`<xsl:value-of select="normalize-space(./start_page)" />`,`<xsl:value-of select="normalize-space(./end_page)" />`);
         year = <xsl:value-of select="normalize-space(./year)" />;
+        note = None;
         |);
     </xsl:if>
   </xsl:template>
@@ -32,6 +33,7 @@
         booktitle = {<xsl:value-of select="normalize-space(./booktitle)" />};
         shortbooktitle = <xsl:if test="./booktitle/@abbr">Some({<xsl:value-of select="normalize-space(./booktitle/@abbr)" />});</xsl:if><xsl:if test="not(./booktitle/@abbr)">None;</xsl:if>
         year = <xsl:value-of select="normalize-space(./year)" />;
+        note = None;
         |);
       </xsl:when>
       <xsl:when test="./@reviewed = 'false'">
@@ -45,6 +47,7 @@
         number = <xsl:if test="./number">Some({<xsl:value-of select="normalize-space(./number)" />})</xsl:if><xsl:if test="not(./number)">None</xsl:if>;
         pages = <xsl:if test="./pages">Some((`<xsl:value-of select="substring-before(normalize-space(./pages),'-')" />`,`<xsl:value-of select="substring-after(normalize-space(./pages),'-')" />`))</xsl:if><xsl:if test="not(./pages)">None</xsl:if>;
         year = <xsl:value-of select="normalize-space(./year)" />;
+        note = None;
         |);
       </xsl:when>
     </xsl:choose>
@@ -56,6 +59,7 @@
     booktitle = {<xsl:value-of select="normalize-space(./booktitle)" />};
     shortbooktitle = <xsl:if test="./booktitle/@abbr">Some({<xsl:value-of select="normalize-space(./booktitle/@abbr)" />});</xsl:if><xsl:if test="not(./booktitle/@abbr)">None;</xsl:if>
     year = <xsl:value-of select="normalize-space(./year)" />;
+    note = None;
     |);
   </xsl:template>
   <xsl:template match="author">
