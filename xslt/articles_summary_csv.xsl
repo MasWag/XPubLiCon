@@ -40,6 +40,8 @@
   </xsl:template>
   <xsl:template match="PublicationEntries/InProceedings">
   </xsl:template>
+  <xsl:template match="PublicationEntries/Proceedings">
+  </xsl:template>
   <xsl:template match="PublicationEntries/Thesis">
   </xsl:template>
   <xsl:template match="author">

@@ -1,6 +1,7 @@
 start = element data {
             element PublicationEntries {
                 (in_proceedings
+                | proceedings
                 | article
                 | book
                 | thesis
@@ -370,6 +371,27 @@ in_proceedings =
         & element pages { text }?
         & author+)
     }
+proceedings =
+    element Proceedings {
+        attribute id { xsd:integer }?,
+        attribute minor { xsd:boolean }?,
+        attribute series { text }?,
+        attribute volume { xsd:integer}?,
+        attribute publisher { text }?,
+        attribute organization { text }?,
+        (element officialPDF { web_resource }?
+        & element title { text }
+        & element authorPDF { web_resource }?
+        & element otherResources { web_resource }*
+        & element year {
+              # This attribute is used if the year of publication is not the same as the year of the event.
+              attribute publication { xsd:integer }?,
+              xsd:integer
+          }
+        & element month { xsd:integer }?
+        & element day { xsd:integer }?
+        & editor+)
+    }
 article =
     element Article {
         attribute minor { xsd:boolean }?,
@@ -437,6 +459,11 @@ misc =
     }
 author =
     element author {
+        attribute url { text }?,
+        text
+    }
+editor =
+    element editor {
         attribute url { text }?,
         text
     }

@@ -88,6 +88,8 @@
   </xsl:template>
   <!-- Theses are completely skipped -->
   <xsl:template match="PublicationEntries/Thesis"></xsl:template>
+  <!-- Proceedings are completely skipped -->
+  <xsl:template match="PublicationEntries/Proceedings"></xsl:template>
   <!-- Misc entries are completely skipped -->
   <xsl:template match="PublicationEntries/Misc"></xsl:template>
   <xsl:template match="author">

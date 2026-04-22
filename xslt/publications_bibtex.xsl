@@ -57,6 +57,57 @@
       <xsl:text>&#10;}&#10;</xsl:text>
     </xsl:if>
   </xsl:template>
+  <xsl:template match="PublicationEntries/Proceedings">
+    <xsl:if test="not(./@minor) or normalize-space(./@minor) != 'true'">
+      <xsl:text>@Proceedings{&#10;</xsl:text>
+      <!-- Editors -->
+      <xsl:text>    editor = {</xsl:text>
+      <xsl:apply-templates select="./editor" />
+      <xsl:text>},&#10;</xsl:text>
+      <!-- Title -->
+      <xsl:text>    title = {</xsl:text>
+      <xsl:value-of select="normalize-space(./title)" />
+      <xsl:text>},&#10;</xsl:text>
+      <!-- Year -->
+      <xsl:text>    year = {</xsl:text>
+      <xsl:value-of select="normalize-space(./year)" />
+      <xsl:text>}</xsl:text>
+      <!-- Series -->
+      <xsl:if test="./@series">
+        <xsl:text>,&#10;    series = {</xsl:text>
+        <xsl:value-of select="normalize-space(./@series)" />
+        <xsl:text>}</xsl:text>
+      </xsl:if>
+      <!-- Volume -->
+      <xsl:if test="./@volume">
+        <xsl:text>,&#10;    volume = {</xsl:text>
+        <xsl:value-of select="normalize-space(./@volume)" />
+        <xsl:text>}</xsl:text>
+      </xsl:if>
+      <!-- Publisher -->
+      <xsl:if test="./@publisher or ./@organization">
+        <xsl:text>,&#10;    publisher = {</xsl:text>
+        <xsl:choose>
+          <xsl:when test="./@publisher"><xsl:value-of select="normalize-space(./@publisher)" /></xsl:when>
+          <xsl:otherwise><xsl:value-of select="normalize-space(./@organization)" /></xsl:otherwise>
+        </xsl:choose>
+        <xsl:text>}</xsl:text>
+      </xsl:if>
+      <!-- DOI -->
+      <xsl:if test="./officialPDF/WebResource/@doi or ./authorPDF/WebResource/@doi or ./otherResources/WebResource/@doi">
+        <xsl:text>,&#10;    doi = {</xsl:text>
+        <xsl:value-of select="(./officialPDF/WebResource/@doi | ./authorPDF/WebResource/@doi | ./otherResources/WebResource/@doi)[1]" />
+        <xsl:text>}</xsl:text>
+      </xsl:if>
+      <!-- URL -->
+      <xsl:if test="./officialPDF/WebResource/@url or ./authorPDF/WebResource/@url or ./otherResources/WebResource/@url">
+        <xsl:text>,&#10;    url = {</xsl:text>
+        <xsl:value-of select="(./officialPDF/WebResource/@url | ./authorPDF/WebResource/@url | ./otherResources/WebResource/@url)[1]" />
+        <xsl:text>}</xsl:text>
+      </xsl:if>
+      <xsl:text>&#10;}&#10;</xsl:text>
+    </xsl:if>
+  </xsl:template>
   <xsl:template match="PublicationEntries/Article">
     <xsl:if test="not(./@published) or normalize-space(./@published) = 'True'">
     <xsl:text>@Article{&#10;</xsl:text>
@@ -167,7 +218,7 @@
     <xsl:value-of select="normalize-space(./year)" />
     <xsl:text>}&#10;}&#10;</xsl:text>
   </xsl:template>
-  <xsl:template match="author">
+  <xsl:template match="author|editor">
     <xsl:param name="japanese">False</xsl:param>
     <xsl:choose>
       <xsl:when test="./@japanese and $japanese != 'False'"><xsl:value-of select="./@japanese" /></xsl:when>

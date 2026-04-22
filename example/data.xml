@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <data>
   <PublicationEntries>
+    <Proceedings series="Lecture Notes in Computer Science" volume="14996" publisher="Springer">
+      <editor>Jane Hillston</editor>
+      <editor>Sadegh Soudjani</editor>
+      <editor>Masaki Waga</editor>
+      <title>Quantitative Evaluation of Systems and Formal Modeling and Analysis of Timed Systems - First International Joint Conference, QEST+FORMATS 2024, Calgary, AB, Canada, September 9-13, 2024, Proceedings</title>
+      <year>2024</year>
+      <officialPDF>
+        <WebResource doi="10.1007/978-3-031-68416-6" label="Springer" />
+      </officialPDF>
+      <otherResources>
+        <WebResource url="https://dblp.org/rec/conf/qestformats/2024.bib" label="DBLP" />
+      </otherResources>
+    </Proceedings>
     <Thesis degree="Ph.D.">
       <author>Masaki Waga</author>
       <title>Empowering Runtime Verification with Polyhedra.</title>

@@ -94,6 +94,7 @@
        others：学位論文（その他）
   -->
   <xsl:template match="PublicationEntries/Thesis"></xsl:template>
+  <xsl:template match="PublicationEntries/Proceedings"></xsl:template>
   <xsl:template match="author">
     <xsl:param name="japanese">False</xsl:param>
     <xsl:choose>

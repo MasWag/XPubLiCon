@@ -108,6 +108,7 @@
     <xsl:text>,,,,,,,,,,,&#10;</xsl:text>
   </xsl:template>
   <xsl:template match="PublicationEntries/Thesis"></xsl:template>
+  <xsl:template match="PublicationEntries/Proceedings"></xsl:template>
   <xsl:template match="author">
     <xsl:param name="japanese">False</xsl:param>
     <xsl:choose>

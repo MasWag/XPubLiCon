@@ -24,6 +24,8 @@
   </xsl:template>
   <xsl:template match="PublicationEntries/Thesis">
   </xsl:template>
+  <xsl:template match="PublicationEntries/Proceedings">
+  </xsl:template>
   <xsl:template match="PublicationEntries/InProceedings">
     <xsl:choose>
       <xsl:when test="./@published and ./@published = 'false' and ./@reviewed = 'false'">
