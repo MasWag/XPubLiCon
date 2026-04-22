@@ -19,6 +19,7 @@ run_case() {
 run_case "articles_satysfi_ja.xsl" "articles_satysfi_ja.txt"
 run_case "articles_summary_csv.xsl" "articles_summary_csv.txt"
 run_case "articles_txt.xsl" "articles_txt.txt"
+run_case "editorials_cv_satysfi.xsl" "editorials_cv_satysfi.txt"
 run_case "editorials_html.xsl" "editorials_html.xml"
 run_case "minor_papers_satysfi_ja.xsl" "minor_papers_satysfi_ja.txt"
 run_case "publications_bibtex.xsl" "publications_bibtex.bib"

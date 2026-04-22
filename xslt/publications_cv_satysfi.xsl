@@ -86,16 +86,7 @@ let bibliography = [
     note = None;
   |);
 </xsl:template>
-<xsl:template match="PublicationEntries/Proceedings">
-  <xsl:if test="not(./@minor) or ./@minor != 'true'">
-    Book(|
-    author = {|<xsl:apply-templates select="./editor" />|};
-    title = {<xsl:value-of select="normalize-space(./title)" />};
-    publisher = {<xsl:choose><xsl:when test="./@publisher"><xsl:value-of select="normalize-space(./@publisher)" /></xsl:when><xsl:otherwise><xsl:value-of select="normalize-space(./@organization)" /></xsl:otherwise></xsl:choose>};
-    year = <xsl:value-of select="normalize-space(./year)" />;
-    note = Some({edited proceedings});
-  |);
-  </xsl:if>
+<xsl:template match="PublicationEntries/Proceedings" priority="2">
 </xsl:template>
 <xsl:template match="dblp/incollection">
   InProceedings(|
