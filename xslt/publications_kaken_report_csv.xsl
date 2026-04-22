@@ -5,6 +5,8 @@
   <xsl:template match="/data">
     <xsl:apply-templates select="./PublicationEntries" />
   </xsl:template>
+  <xsl:template match="PublicationEntries/Article[@type='editorial_chapter']" priority="2">
+  </xsl:template>
   <xsl:template match="PublicationEntries/InProceedings">
     <!-- Category (Paper: 1, Data:2) -->
     <xsl:text>1,</xsl:text>

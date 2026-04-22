@@ -1,0 +1,2 @@
+"Genetic algorithm for the weight maximization problem on weighted automata", Proc. GECCO, pp. 699-707, 2020, Elena Gutiérrez* (1 / 4), Takamasa Okudono, Ichiro Hasuo.
+"Moore-Machine Filtering for Timed and Untimed Pattern Matching", IEEE Trans. Comput. Aided Des. Integr. Circuits Syst., volume 37, issue 11, 2018, IEEE, Masaki Waga* (1 / 2), Ichiro Hasuo.

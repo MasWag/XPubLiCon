@@ -6,6 +6,8 @@ let bibliography = [
   <xsl:apply-templates select="./PublicationEntries" />
 ]
 </xsl:template>
+<xsl:template match="PublicationEntries/Article[@type='editorial_chapter']" priority="2">
+</xsl:template>
 <xsl:template match="PublicationEntries/InProceedings">
   <xsl:choose>
     <xsl:when test="./@minor = true">

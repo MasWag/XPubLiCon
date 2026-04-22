@@ -6,6 +6,8 @@
   <xsl:template match="/data">
     <xsl:apply-templates select="./PublicationEntries" />
   </xsl:template>
+  <xsl:template match="PublicationEntries/Article[@type='editorial_chapter']" priority="2">
+  </xsl:template>
   <xsl:template match="PublicationEntries/InProceedings">
     <!-- Unpublished papers are skipped -->
     <xsl:if test="not(./@published) or ./@published = 'true'">

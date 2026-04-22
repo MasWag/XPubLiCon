@@ -390,7 +390,8 @@ proceedings =
           }
         & element month { xsd:integer }?
         & element day { xsd:integer }?
-        & editor+)
+        & editor+),
+        element note { text }?
     }
 article =
     element Article {
@@ -399,6 +400,7 @@ article =
         attribute published { xsd:boolean }?,
         attribute referee { xsd:boolean }?, # Considered as true by default
         attribute id { xsd:integer }?,
+        attribute type { "editorial_chapter" }?,
         attribute international_collaboration { xsd:boolean }?,
         (element title { text }
         & element officialPDF { web_resource }?

@@ -1,0 +1,42 @@
+
+let bibliography = [
+  
+    
+    Book(|
+    author = {|Jane Hillston, Sadegh Soudjani, Masaki Waga|};
+    title = {Quantitative Evaluation of Systems and Formal Modeling and Analysis of Timed Systems - First International Joint Conference, QEST+FORMATS 2024, Calgary, AB, Canada, September 9-13, 2024, Proceedings};
+    publisher = {Springer};
+    year = 2024;
+    note = Some({edited proceedings});
+  |);
+  
+    
+    
+      InProceedings(|
+      author = {|Elena Gutiérrez, Takamasa Okudono, Masaki Waga, Ichiro Hasuo|};
+      title = {Genetic algorithm for the weight maximization problem on weighted automata.};
+      booktitle = {GECCO};
+      shortbooktitle = None;
+      series = None;
+      volume = None;
+      number = None;
+      pages = Some((`699`,`707`));
+      year = 2020;
+      note = None;
+      |);
+    
+    
+      Article(|
+      author = {|Masaki Waga, Ichiro Hasuo|};
+      title = {Moore-Machine Filtering for Timed and Untimed Pattern Matching.};
+      journal = {IEEE Trans. Comput. Aided Des. Integr. Circuits Syst.};
+      shortjournal = None;
+      volume = Some(37);
+      number = Some({11});
+      pages = (`2649`,`2660`);
+      year = 2018;
+      note = None;
+      |);
+    
+  
+]

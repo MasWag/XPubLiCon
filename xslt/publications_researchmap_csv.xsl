@@ -6,6 +6,8 @@
   <xsl:text>"アクション名","アクションタイプ",ID,タイトル(日本語),タイトル(英語),著者(日本語),著者(英語),出版者・発行元(日本語),出版者・発行元(英語),出版年月,誌名(日本語),誌名(英語),巻,号,開始ページ,終了ページ,掲載種別&#10;</xsl:text>
 <xsl:apply-templates select="./PublicationEntries" />
 </xsl:template>
+  <xsl:template match="PublicationEntries/Article[@type='editorial_chapter']" priority="2">
+  </xsl:template>
   <xsl:template match="PublicationEntries/InProceedings">
     <xsl:if test="not(./@published) or ./@published = 'true'">
       <xsl:choose>

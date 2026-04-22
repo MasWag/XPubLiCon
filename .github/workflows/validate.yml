@@ -13,11 +13,14 @@ jobs:
         with:
           submodules: true
 
-      - name: Install mono-xmltool
-        run: sudo apt-get update && sudo apt-get install mono-devel -y
+      - name: Install validation tools
+        run: sudo apt-get update && sudo apt-get install mono-devel xsltproc -y
 
       - name: Validate the schema file
         run: mono-xmltool --validate-rnc ./schema.rnc
 
       - name: Validate the example XML file
         run: mono-xmltool --validate ./schema.rnc ./example/data.xml
+
+      - name: Run XSLT regression tests
+        run: ./tests/xslt-regression/run.sh

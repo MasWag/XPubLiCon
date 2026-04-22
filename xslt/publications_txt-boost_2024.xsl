@@ -4,6 +4,8 @@
   <xsl:template match="/data">
     <xsl:apply-templates select="./PublicationEntries/Article | ./PublicationEntries/InProceedings" />
   </xsl:template>
+  <xsl:template match="Article[@type='editorial_chapter']" priority="2">
+  </xsl:template>
   <xsl:template match="Article">
     <xsl:text>"</xsl:text>
     <xsl:call-template name="removePeriod">

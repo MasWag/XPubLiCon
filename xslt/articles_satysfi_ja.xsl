@@ -7,6 +7,8 @@
     <xsl:apply-templates select="./PublicationEntries/Article" />
     <xsl:text>]&#x0A;</xsl:text>
   </xsl:template>
+  <xsl:template match="PublicationEntries/Article[@type='editorial_chapter']" priority="2">
+  </xsl:template>
   <xsl:template match="PublicationEntries/Article">
     <xsl:choose>
       <xsl:when test="./@referee and ./@referee = 'false'">

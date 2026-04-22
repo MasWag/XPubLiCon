@@ -3,8 +3,10 @@
   <xsl:output method="xml" encoding="UTF-8"/>
   <xsl:template match="/data">
     <ul>
-      <xsl:apply-templates select="./PublicationEntries" />
+      <xsl:apply-templates select="./PublicationEntries/InProceedings | ./PublicationEntries/Article[not(@type='editorial_chapter')] | ./PublicationEntries/Book | ./PublicationEntries/Thesis | ./PublicationEntries/Misc" />
     </ul>
+  </xsl:template>
+  <xsl:template match="PublicationEntries/Article[@type='editorial_chapter']" priority="2">
   </xsl:template>
   <xsl:template match="PublicationEntries/InProceedings">
     <xsl:choose>
@@ -129,53 +131,7 @@
       </xsl:if>.
     </li>
   </xsl:template>
-  <xsl:template match="PublicationEntries/Proceedings">
-    <xsl:choose>
-      <xsl:when test="./@minor = 'true'">
-      </xsl:when>
-      <xsl:otherwise>
-        <li>
-          <span class="authors"><xsl:apply-templates select="./editor" /> (eds.)</span>
-          <span class="title"><xsl:value-of select="normalize-space(./title)" /></span>
-          <xsl:if test="./@series or ./@volume">
-            <span class="book-name">
-              <xsl:if test="./@series"><xsl:value-of select="normalize-space(./@series)" /></xsl:if>
-              <xsl:if test="./@series and ./@volume"><xsl:text> </xsl:text></xsl:if>
-              <xsl:if test="./@volume"><xsl:value-of select="normalize-space(./@volume)" /></xsl:if>
-            </span>,
-          </xsl:if>
-          <span class="year"><xsl:value-of select="normalize-space(./year)" /></span>
-          <xsl:if test="./@publisher or ./@organization">,
-            <span class="organization">
-              <xsl:choose>
-                <xsl:when test="./@publisher"><xsl:value-of select="normalize-space(./@publisher)" /></xsl:when>
-                <xsl:otherwise><xsl:value-of select="normalize-space(./@organization)" /></xsl:otherwise>
-              </xsl:choose>
-            </span>
-          </xsl:if>.
-          <xsl:if test="./officialPDF or ./authorPDF or ./otherResources">
-            <br />
-            <xsl:text>[</xsl:text>
-            <xsl:if test="./officialPDF">
-              <xsl:apply-templates select="./officialPDF/WebResource" />
-            </xsl:if>
-            <xsl:if test="./officialPDF and (./authorPDF or ./otherResources)">
-              <xsl:text> | </xsl:text>
-            </xsl:if>
-            <xsl:if test="./authorPDF">
-              <xsl:apply-templates select="./authorPDF/WebResource" />
-            </xsl:if>
-            <xsl:if test="./authorPDF and ./otherResources">
-              <xsl:text> | </xsl:text>
-            </xsl:if>
-            <xsl:if test="./otherResources">
-              <xsl:apply-templates select="./otherResources" />
-            </xsl:if>
-            <xsl:text>]</xsl:text>
-          </xsl:if>
-        </li>
-      </xsl:otherwise>
-    </xsl:choose>
+  <xsl:template match="PublicationEntries/Proceedings" priority="2">
   </xsl:template>
   <xsl:template match="dblp/incollection">
     (`<xsl:value-of select="./@key" />`, InProceedings(|

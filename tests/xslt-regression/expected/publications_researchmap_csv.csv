@@ -1,0 +1,4 @@
+published_papers
+"アクション名","アクションタイプ",ID,タイトル(日本語),タイトル(英語),著者(日本語),著者(英語),出版者・発行元(日本語),出版者・発行元(英語),出版年月,誌名(日本語),誌名(英語),巻,号,開始ページ,終了ページ,掲載種別
+insert,merge,null,"Genetic algorithm for the weight maximization problem on weighted automata.","Genetic algorithm for the weight maximization problem on weighted automata.","[Elena Gutiérrez, Takamasa Okudono, Masaki Waga, Ichiro Hasuo]","[Elena Gutiérrez, Takamasa Okudono, Masaki Waga, Ichiro Hasuo]",null,null,2020,"GECCO","GECCO",null,null,null,null,international_conference_proceedings
+insert,merge,null,"Moore-Machine Filtering for Timed and Untimed Pattern Matching.",Moore-Machine Filtering for Timed and Untimed Pattern Matching.","[Masaki Waga, Ichiro Hasuo]","[Masaki Waga, Ichiro Hasuo]",IEEE,IEEE,2018,IEEE Trans. Comput. Aided Des. Integr. Circuits Syst.,IEEE Trans. Comput. Aided Des. Integr. Circuits Syst.,,null,,,scientific_journal
