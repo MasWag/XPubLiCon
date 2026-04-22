@@ -1,0 +1,17 @@
+
+let bib-editorials = [
+
+      Proceedings(|
+      editor = {|Jane Hillston, Sadegh Soudjani, Masaki Waga|};
+      title = {Quantitative Evaluation of Systems and Formal Modeling and Analysis of Timed Systems - First International Joint Conference, QEST+FORMATS 2024, Calgary, AB, Canada, September 9-13, 2024, Proceedings};
+      shorttitle = None;
+      series = Some({Lecture Notes in Computer Science});
+      volume = Some(14996);
+      number = None;
+      publisher = Some({Springer});
+      organization = None;
+      address = None;
+      year = 2024;
+      note = None;
+      |);
+    ]
