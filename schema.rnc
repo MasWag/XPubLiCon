@@ -156,7 +156,7 @@ start = element data {
                     element Other {
                         attribute id { xsd:integer }?,
                         attribute international_venue { xsd:boolean }?,
-                        attribute type { "society" }?,(
+                        attribute type { "society", "government", "autonomy", "others" }?,(
                             element name {
                                 attribute japanese { text }?,
                                 text
