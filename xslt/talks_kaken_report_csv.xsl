@@ -18,19 +18,19 @@
     <!-- Invited -->
     <xsl:choose>
       <xsl:when test="normalize-space(./@invited) = 'true'">
-        <xsl:text>true,</xsl:text>
+        <xsl:text>1,</xsl:text>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:text>false,</xsl:text>
+        <xsl:text>0,</xsl:text>
       </xsl:otherwise>
     </xsl:choose>
     <!-- International -->
     <xsl:choose>
-      <xsl:when test="normalize-space(./@international) = 'false'">
-        <xsl:text>false</xsl:text>
+      <xsl:when test="normalize-space(./@international) = 'false' or normalize-space(./@international_venue) = 'false'">
+        <xsl:text>0</xsl:text>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:text>true</xsl:text>
+        <xsl:text>1</xsl:text>
       </xsl:otherwise>
     </xsl:choose>
     <xsl:text>&#10;</xsl:text>

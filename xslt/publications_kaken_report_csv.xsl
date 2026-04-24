@@ -63,7 +63,7 @@
       </xsl:otherwise>
     </xsl:choose>
     <!-- Fields for data -->
-    <xsl:text>,,,,,,,,,,,&#10;</xsl:text>
+    <xsl:text>,,,,,,,,,,,,,&#10;</xsl:text>
   </xsl:template>
   <xsl:template match="PublicationEntries/Article">
     <!-- Category (Paper: 1, Data:2) -->
@@ -107,7 +107,7 @@
       </xsl:otherwise>
     </xsl:choose>
     <!-- Fields for data -->
-    <xsl:text>,,,,,,,,,,,&#10;</xsl:text>
+    <xsl:text>,,,,,,,,,,,,,&#10;</xsl:text>
   </xsl:template>
   <xsl:template match="PublicationEntries/Thesis"></xsl:template>
   <xsl:template match="PublicationEntries/Proceedings"></xsl:template>
