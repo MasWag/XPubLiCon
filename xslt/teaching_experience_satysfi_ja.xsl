@@ -1,11 +1,17 @@
 <?xml version="1.0" ?>
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" > 
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:doc="urn:xpub:documentation" > 
   <xsl:output method="text" encoding="UTF-8"/>
+  <doc:usage>
+    Set skip_ta to true to omit TeachingExperience entries with TA="true".
+    Example:
+      xsltproc --stringparam skip_ta true xslt/teaching_experience_satysfi_ja.xsl example/data.xml
+  </doc:usage>
+  <xsl:param name="skip_ta">false</xsl:param>
   <xsl:template match="/data">
     <xsl:text>&#x0A;</xsl:text>
     <xsl:text>let teaching-experience = '&lt;&#x0A;</xsl:text>
     <xsl:text>  +listing {&#x0A;</xsl:text>
-    <xsl:apply-templates select="./TeachingExperiences/TeachingExperience"/>
+    <xsl:apply-templates select="./TeachingExperiences/TeachingExperience[not(normalize-space($skip_ta) = 'true' and @TA = 'true')]"/>
     <xsl:text>    }&#x0A;</xsl:text>
     <xsl:text>&gt;&#x0A;</xsl:text>
   </xsl:template>

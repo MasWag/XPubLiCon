@@ -11,8 +11,9 @@ mkdir -p "$ACTUAL_DIR"
 run_case() {
   stylesheet=$1
   expected=$2
+  shift 2
 
-  xsltproc "$ROOT_DIR/xslt/$stylesheet" "$ROOT_DIR/example/data.xml" > "$ACTUAL_DIR/$expected"
+  xsltproc "$@" "$ROOT_DIR/xslt/$stylesheet" "$ROOT_DIR/example/data.xml" > "$ACTUAL_DIR/$expected"
   diff -u "$EXPECTED_DIR/$expected" "$ACTUAL_DIR/$expected"
 }
 
@@ -30,3 +31,5 @@ run_case "publications_kaken_report_csv.xsl" "publications_kaken_report_csv.csv"
 run_case "publications_kaken_review_committee.xsl" "publications_kaken_review_committee.txt"
 run_case "publications_researchmap_csv.xsl" "publications_researchmap_csv.csv"
 run_case "publications_txt-boost_2024.xsl" "publications_txt-boost_2024.txt"
+run_case "teaching_experience_satysfi_ja.xsl" "teaching_experience_satysfi_ja.txt"
+run_case "teaching_experience_satysfi_ja.xsl" "teaching_experience_satysfi_ja_skip_ta.txt" --stringparam skip_ta true
