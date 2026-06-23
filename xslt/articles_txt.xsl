@@ -13,9 +13,9 @@
         <xsl:value-of select="normalize-space(./title)" />
       </xsl:with-param>
     </xsl:call-template>
-    <xsl:text>, </xsl:text>
-    <xsl:apply-templates select="./author" />
     <xsl:text>", </xsl:text>
+    <xsl:apply-templates select="./author" />
+    <xsl:text>, </xsl:text>
     <xsl:choose>
       <xsl:when test="./@published and ./@published = 'false'">
         <xsl:text>To appear in </xsl:text>
